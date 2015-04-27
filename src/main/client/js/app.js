@@ -22,11 +22,14 @@ angular.module('apcoa', [
   'appAuthorizationService',
 
   function($window, $location, $state, $rootScope, $timeout, Restangular, localStorageService, $translate, appAuthorizationService) {
-    $rootScope.origin = $location.protocol() + '://' + $location.host() + ($location.port()? ':' + $location.port(): '');
     if ($location.host() !== 'localhost') {
-      $rootScope.origin = $rootScope.origin.replace('http', 'https');
-      $window.location.href = $location.absUrl().replace('http', 'https');
-    }
+	  $rootScope.origin = $location.protocol() + '://' + $location.host() + ($location.port()? ':' + $location.port(): '');
+      if ($location.protocol() !== 'https') {
+		$window.location.href = $location.absUrl().replace('http', 'https');
+	  }
+    } else {
+		$rootScope.origin = 'http://localhost:8080';
+	}
 
     if (appAuthorizationService.isAuthorized()) {
       appAuthorizationService.addUserToScope();

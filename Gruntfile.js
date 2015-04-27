@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: 'src/main/client/img/',
-					src: ['**/*.{png,jpg,gif}'],
+					src: ['**/*.{png,jpg,gif,ico}'],
 					dest: 'src/main/webapp/resources/img/'
 				}]
 			}
@@ -147,7 +147,7 @@ module.exports = function(grunt) {
 		},
 		clean: {
 			build: ['src/main/webapp/resources/**'],
-			cache: ['.tmp/**', '.sass-cache/**']
+			cache: ['.tmp/**', '.sass-cache/**', 'bower_components/']
 		}
 	});
 
