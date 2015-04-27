@@ -22,11 +22,11 @@ angular.module('apcoa', [
   'appAuthorizationService',
 
   function($window, $location, $state, $rootScope, $timeout, Restangular, localStorageService, $translate, appAuthorizationService) {
-    var isNotLocalhost =  $location.host() !== 'localhost';
-    if (isNotLocalhost && $location.protocol() === 'http') {
+    $rootScope.origin = $location.protocol() + '://' + $location.host() + ($location.port()? ':' + $location.port(): '');
+    if ($location.host() !== 'localhost') {
+      $rootScope.origin = $rootScope.origin.replace('http', 'https');
       $window.location.href = $location.absUrl().replace('http', 'https');
     }
-    $rootScope.origin = isNotLocalhost? 'https://apcoabackend.herokuapp.com': 'http://localhost:8080';///apcoabackend';
 
     if (appAuthorizationService.isAuthorized()) {
       appAuthorizationService.addUserToScope();
