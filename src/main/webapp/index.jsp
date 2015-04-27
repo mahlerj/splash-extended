@@ -16,7 +16,7 @@
   </head>
   <body ng-app="apcoa" class="position--relative container">
     <!-- Start: Header -->
-    <header class="header" ng-class="{'header--logged-in': User, 'csc--header': User.isAdmin}">
+    <header class="header" ng-class="{'header--logged-in': User, 'csc--header': User.isCSCUser}">
       <div ng-include="'templates/_header.html'"></div>
     </header>
     <!-- End: Header -->
@@ -27,7 +27,7 @@
     <div ui-view class="content"></div>
     <!-- End: ui-view -->
     <footer class="footer footer-user text--center" ng-if="User.isCustomer">
-        <span>If you have any question, please contact customer service center: +46 1234-56789!</span>
+        <span>{{'FOOTRE_TEXT' | translate}}</span>
     </footer>
     <footer class="footer text--center" ng-if="!User || !User.isCustomer"></footer>
   </body>

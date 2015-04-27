@@ -12,6 +12,8 @@
 # --------------------
 /src/main/client/node_modules
 /src/main/client/bower_components
+/src/main/webapp/resources
+/src/main/webapp/index.jsp
 # --------------------
 # OSX Files
 # --------------------

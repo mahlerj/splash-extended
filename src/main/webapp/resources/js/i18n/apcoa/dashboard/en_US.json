@@ -15,5 +15,6 @@
   "DASHBOARD_BOX_CREATE_CUSTOMER_CONTENT" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.",
 
   "DASHBOARD_BOX_UPLOAD_CUSTOMER_HEADLINE": "Create new Customer",
-  "DASHBOARD_BOX_UPLOAD_CUSTOMER_CONTENT" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt."
+  "DASHBOARD_BOX_UPLOAD_CUSTOMER_CONTENT" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.",
+  "FOOTRE_TEXT"                           : "If you have any question, please contact customer service center: +46 1234-56789!"
 }

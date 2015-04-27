@@ -5,5 +5,5 @@
   "LOGIN_LOCK_ERROR"           : "The log in is locked. Please try again in {{minutes}} minutes.",
 
   "LOGIN_FORM_ORGANIZATION_ID" : "Organisationsnummer *",
-  "LOGIN_FORM_PASSWORD"        : "Password *"
+  "LOGIN_FORM_PASSWORD"        : "Lösenord *"
 }

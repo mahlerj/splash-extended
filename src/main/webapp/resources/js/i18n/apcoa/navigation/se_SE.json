@@ -1,8 +1,8 @@
 {
   "NAVIGATION_DASHBOARD"                : "Dashboard",
-  "NAVIGATION_VRM"                      : "Registreringsplåt",
-  "NAVIGATION_SEARCH_CUSTOMER"          : "Search for customer",
-  "NAVIGATION_CREATE_CUSTOMER"          : "Create new customer",
-  "NAVIGATION_UPLOAD_CUSTOMER"          : "Upload new customer",
+  "NAVIGATION_VRM"                      : "Registreringsskylt",
+  "NAVIGATION_SEARCH_CUSTOMER"          : "Sök kund",
+  "NAVIGATION_CREATE_CUSTOMER"          : "Registrera ny kund",
+  "NAVIGATION_UPLOAD_CUSTOMER"          : "Uppdatera",
   "NAVIGATION_PERSONAL_DATA"            : "Profil"
 }
