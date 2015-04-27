@@ -1,0 +1,20 @@
+{
+  "VRM_LIST_HEADLINE"           : "Registreringsplåt",
+  "VRM_LIST_SUBHEADLINE"        : "Please choose a contract below to edit.",
+
+  "VRM_EDIT_HEADLINE"           : " Kontrakt",
+  "VRM_EDIT_SAVE_SUCCESS"       : "Your changes were successfully saved.",
+  "VRM_EDIT_SAVE_LOT_ERROR"     : "You must delete {{number}} VRMs before you can save.",
+
+  "VRM_EDIT_FORM_CONTRACT_ID"   : "Contract ID",
+  "VRM_EDIT_FORM_FACILITY_NAME" : "Plats",
+  "VRM_EDIT_FORM_PARKING_LOTS"  : "Platser",
+
+  "VRM_EDIT_FORM_SECTION_UPDATE": "Update or remove",
+  "VRM_EDIT_FORM_SECTION_ADD"   : "Add new",
+
+  "VRM_FIELD_NAME"              : "Registreringsplåt",
+  "VRM_FIELD_COMMENT"           : "Comment",
+
+  "VRM_EDIT_BTN"                : "Ändra registreringsnummer"
+}

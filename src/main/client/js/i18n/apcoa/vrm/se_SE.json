@@ -1,0 +1,20 @@
+{
+  "VRM_LIST_HEADLINE"           : "Registreringsskylt",
+  "VRM_LIST_SUBHEADLINE"        : "Vänligen välj ett kontraktsnummer att ändra.",
+
+  "VRM_EDIT_HEADLINE"           : " Kontraktsnummer",
+  "VRM_EDIT_SAVE_SUCCESS"       : "Your changes were successfully saved.",
+  "VRM_EDIT_SAVE_LOT_ERROR"     : "You must delete {{number}} VRMs before you can save.",
+
+  "VRM_EDIT_FORM_CONTRACT_ID"   : "Kontraktsnummer",
+  "VRM_EDIT_FORM_FACILITY_NAME" : "Garage",
+  "VRM_EDIT_FORM_PARKING_LOTS"  : "Antal platser",
+
+  "VRM_EDIT_FORM_SECTION_UPDATE": "Lägg till eller ta bort",
+  "VRM_EDIT_FORM_SECTION_ADD"   : "Ny",
+
+  "VRM_FIELD_NAME"              : "Registreringsskylt",
+  "VRM_FIELD_COMMENT"           : "Comment",
+
+  "VRM_EDIT_BTN"                : "Ändra registreringsnummer"
+}
