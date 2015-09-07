@@ -201,9 +201,10 @@
 				<executions>
 				  <execution>
 					<goals>
+					  <goal>create-resources</goal>
 					  <goal>npm</goal>
-					  <!--goal>bower</goal>
-					  <goal>grunt</goal-->
+					  <!--goal>bower</goal-->
+					  <goal>grunt</goal>
 					</goals>
 				  </execution>
 				</executions>
@@ -227,7 +228,7 @@
 					<workingDirectory>${basedir}/src/main/webapp</workingDirectory>
 				</configuration>
 			</plugin-->
-			<!-- end::wsdl[] -->
+		
 		</plugins>
 	</build>
 </project>

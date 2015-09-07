@@ -28,7 +28,7 @@ angular.module('apcoa', [
 		$window.location.href = $location.absUrl().replace('http', 'https');
 	  }
     } else {
-		$rootScope.origin = 'http://localhost:8080';
+		$rootScope.origin = 'http://localhost:8080/apcoaparkingportal';
 	}
 
     if (appAuthorizationService.isAuthorized()) {
@@ -60,7 +60,7 @@ angular.module('apcoa', [
     });
 
     // setup restangular
-    Restangular.setBaseUrl($rootScope.origin);
+   Restangular.setBaseUrl($rootScope.origin);
     Restangular.setFullRequestInterceptor(function(element, operation, route, url, headers, params) {
       headers.token = $rootScope.User? $rootScope.User.token: null;
       return {

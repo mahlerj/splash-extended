@@ -54,7 +54,7 @@ angular.module('apcoa')
   $translatePartialLoaderProvider.addPart('user');
 
   $translateProvider.useLoader('$translatePartialLoader', {
-    urlTemplate: '/js/i18n/apcoa/{part}/{lang}.json'
+    urlTemplate: 'js/i18n/apcoa/{part}/{lang}.json'
   });
 
   $translateProvider.preferredLanguage('se_SE');
