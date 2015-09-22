@@ -3,9 +3,9 @@
 /**
  * Services: Api base responses
  */
-angular.module('apcoa.services').factory('apiBaseResponses', [
+angular.module('logicline.services').factory('apiBaseResponses', [
 function() {
-  function ApcoaAPIError(error) {
+  function LogiclineAPIError(error) {
     this.error = {};
     this.status = {};
     this.statusText = {};
@@ -30,7 +30,7 @@ function() {
       return res;
     },
     onError: function(error) {
-      return new ApcoaAPIError(error);
+      return new LogiclineAPIError(error);
     }
   };
   return apiBaseResponses;

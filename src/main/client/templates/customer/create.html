@@ -26,23 +26,13 @@
     <div class="row">
       <div class="small-12 columns">
         <input type="text" name="orgNr" placeholder="{{ 'USER_EDIT_FORM_ORGANIZATION_ID' | translate }}" class="small-12 medium-5 columns input" required ng-model="userInformation.userInfoEntity.orgNr" ng-class="{ 'has--error': userInformationSubmitted && (userEditForm.orgNr.$error.required || userEditForm.orgNr.$invalid) }" />
+      	<input type="text" name="company" placeholder="{{ 'USER_EDIT_FORM_COMPANY' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-model="userInformation.userInfoEntity.company" />
       </div>
     </div>
     <div class="row">
       <div class="small-12 columns">
         <input type="text" name="customerId" placeholder="{{ 'USER_EDIT_FORM_CUSTOMER_ID' | translate }}" class="small-12 medium-5 columns input" required ng-model="userInformation.userInfoEntity.customerId" ng-class="{ 'has--error': userInformationSubmitted && (userEditForm.customerId.$error.required || userEditForm.customerId.$invalid) }" />
         <input type="text" name="identityNr" placeholder="{{ 'USER_EDIT_FORM_PERSONAL_ID' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" required ng-model="userInformation.userInfoEntity.identityNr" ng-class="{ 'has--error': userInformationSubmitted && (userEditForm.identityNr.$error.required || userEditForm.identityNr.$invalid) }" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-12 columns">
-        <input type="text" name="contractId" placeholder="{{ 'USER_EDIT_FORM_CONTRACT_ID' | translate }}" class="small-12 medium-5 columns input" ng-model="userInformation.contractInfoEntity.contractId" />
-        <input type="number" name="parkingLotCount" placeholder="{{ 'USER_EDIT_FORM_NUMBER_OF_SLOTS' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-model="userInformation.contractInfoEntity.parkingLotCount" ng-class="{'has--error': userEditForm.parkingLotCount.$invalid}" min="0" max="99" maxlength="2" ng-maxlength="2"/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-12 columns">
-        <input type="text" name="company" placeholder="{{ 'USER_EDIT_FORM_COMPANY' | translate }}" class="small-12 medium-5 columns input" ng-model="userInformation.userInfoEntity.company" />
       </div>
     </div>
     <div class="row">

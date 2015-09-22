@@ -3,4 +3,4 @@
 /**
  * Controllers
  */
-angular.module('apcoa.controllers', []);
+angular.module('logicline.controllers', []);

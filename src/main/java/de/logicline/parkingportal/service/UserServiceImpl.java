@@ -185,6 +185,23 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
+	public Map<Integer, String> getAllCustomer(){
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<UserInfoEntity> cq = cb.createQuery(UserInfoEntity.class);
+		Root<UserInfoEntity> userInfo = cq.from(UserInfoEntity.class);
+		cq.select(userInfo);
+		List<UserInfoEntity> resultList = em.createQuery(cq).getResultList();	
+		
+		Map<Integer, String> customerIdMap = new HashMap<Integer, String>();
+		
+		for(UserInfoEntity uie : resultList){
+			customerIdMap.put(uie.getUserIdFk(), uie.getCustomerId());
+		}
+		
+		return customerIdMap;
+		
+	}
+	
 	public Map<Integer, String> searchUserByCustomerId(String customerId){
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<UserInfoEntity> cq = cb.createQuery(UserInfoEntity.class);

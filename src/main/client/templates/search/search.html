@@ -19,50 +19,24 @@
       <p class="content--text" ng-show="isResultChosen">{{'USER_SEARCH_EDIT_SUBHEADLINE2' | translate}}</p>
     </div>
   </div>
-
-  <div ng-show="!isResultList && !isResultChosen">
-    <form name="searchForm" ng-submit="searchData();">
-      <div class="row spacing--top--15">
-        <!--div class="small-12 medium-2 medium-push-1 columns">
-          <label for="customerId">{{ 'USER_EDIT_FORM_CUSTOMER_ID' | translate }}</label>
-        </div>
-        <div class="small-12 medium-4 medium-push-1 columns">
-          <input type="text" name="customerId" id="customerId" placeholder="{{ 'USER_SEARCH_FORM_CUSTOMER_ID' | translate }}*" class="input"
-            ng-model="customerId" ng-class="{'has--error': searchForm.$submitted && !customerId.length}"/>
-        </div-->
-        <div class="small-12 medium-4 columns">
-          <input type="text" name="customerId" id="customerId" placeholder="{{ 'USER_SEARCH_FORM_CUSTOMER_ID' | translate }}*" class="input"
-            ng-model="customerId" ng-class="{'has--error': searchForm.$submitted && !customerId.length}"/>
-        </div>
-        <br/>
-      </div>
-      <!--div class="row">
-        <div class="small-12 medium-2 medium-push-1 columns">
-          <label for="contractId">{{ 'USER_EDIT_FORM_CONTRACT_ID' | translate }}</label>
-        </div>
-        <div class="small-12 medium-4 small-push-1 columns">
-          <input type="text" name="contractId" id="contractId" placeholder="{{ 'USER_EDIT_FORM_CONTRACT_ID' | translate }}" class="input" ng-model="contractId" ng-class="{'has--error': searchForm.$submitted && !contractId.length}"/>
-        </div>
-        <br/>
-      </div-->
-
-      <!-- Start: Buttons -->
-      <div class="row">
-        <div class="small-12 columns spacing--top--20">
-          <input type="button" class="small-5 medium-2 columns cursor--pointer btn btn--cancel" ng-click="goTo('dashboard');" value="{{ 'BTN_CANCEL' | translate }}"/>
-          <input type="submit" class="small-5 medium-2 medium-pull-1 columns spacing--left--20 cursor--pointer btn btn--submit" value="{{ 'BTN_SEARCH' | translate }}"/>
-        </div>
-      </div>
-      <!-- End: Buttons -->
-    </form>
-  </div>
-
-  <div ng-show="isResultList && !isResultChosen">
-    <div class="row spacing--top--15">
+  <div ng-show="!isResultChosen">
+		<div class="flexsearch">
+			<div class="flexsearch--wrapper">
+				<form class="flexsearch--form" ng-submit="searchData();">
+					<div class="flexsearch--input-wrapper">
+						<input class="flexsearch--input" type="search"
+						placeholder="search" data-ng-model="customerId" data-ng-change="filterCustomers()"
+						class="novalidate form-control">
+					</div>
+					<input class="flexsearch--submit" type="submit" value="&#10140;" />
+				</form>
+			</div>
+		</div>
+		<div class="row spacing--top--15">
       <div class="small-12 columns">
         <!-- Start: Customer list -->
           <ul class="small-12 columns list">
-            <li class="list__item cursor--pointer" ng-repeat="res in resultsList" ng-click="chooseResult(res.userIdFk);">
+            <li class="list__item cursor--pointer" ng-repeat="res in filteredCustomers | orderBy:'customerId'" ng-click="chooseResult(res.userIdFk);">
               {{ res.customerId }}
             </li>
           </ul>
@@ -87,18 +61,8 @@
     </div-->
 
     <div class="small-12 columns spacing--top--15">
-      <div class="small-12 medium-5 large-4 columns box box--cerulean cursor--pointer" ng-click="goTo('contract_list_admin', {userId: searchResult.customerInfo.userIdFk});">
-        <p class="box__headline text--white">
-          {{ 'DASHBOARD_BOX_VRM_HEADLINE' | translate }}
-        </p>
-        <p class="box__content">
-          {{ 'DASHBOARD_BOX_VRM_CONTENT' | translate }}
-        </p>
-      </div>
-      <div class="show-for-small-only small-12 columns">&nbsp;</div>
-
-      <div class="small-12 medium-5 medium-pull-1 large-4 large-pull-3 columns box box--cerulean cursor--pointer" ng-click="goTo('customer_edit', {userId: searchResult.customerInfo.userIdFk});">
-        <p class="box__headline text--white">
+      <div class="small-12 medium-5 large-4 columns box box--cerulean cursor--pointer" ng-click="goTo('customer_edit', {userId: searchResult.customerInfo.userIdFk});">
+        <p class="box__headline">
           {{ 'DASHBOARD_BOX_PERSONAL_DATA_HEADLINE' | translate }}
         </p>
         <p class="box__content">

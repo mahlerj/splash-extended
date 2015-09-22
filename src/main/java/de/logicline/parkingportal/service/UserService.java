@@ -31,6 +31,7 @@ public interface UserService {
     
     public void updatePassword(Integer userId);
     
+    public Map<Integer, String> getAllCustomer();
     
     public Map<Integer, String> searchUserByCustomerId(String customerId);
   

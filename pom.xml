@@ -2,7 +2,7 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.logicline.parkingportal</groupId>
-	<artifactId>apcoaparkingportal</artifactId>
+	<artifactId>logiclineportal</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
 <properties>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apcoa')
+angular.module('logicline')
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
     /* Login */

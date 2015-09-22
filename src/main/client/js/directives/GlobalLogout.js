@@ -3,7 +3,7 @@
 /**
  * Global: Logout
  */
-angular.module('apcoa.directives')
+angular.module('logicline.directives')
 .directive('logout', [
 '$state',
 'appAuthenticationService',

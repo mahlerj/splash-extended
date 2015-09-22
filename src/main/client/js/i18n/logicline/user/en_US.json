@@ -17,9 +17,9 @@
   "USER_EDIT_PS_RESET"            : "Create new password.",
   "USER_EDIT_PS_SUCCESS"          : "The password has been successfully reset and will be print on the next invoice.",
 
-  "USER_EDIT_FORM_ORGANIZATION_ID": "Organization ID*",
-  "USER_EDIT_FORM_CUSTOMER_ID"    : "Customer ID*",
-  "USER_EDIT_FORM_PERSONAL_ID"    : "Personal ID*",
+  "USER_EDIT_FORM_ORGANIZATION_ID": "Organization ID *",
+  "USER_EDIT_FORM_CUSTOMER_ID"    : "Customer ID *",
+  "USER_EDIT_FORM_PERSONAL_ID"    : "Personal ID *",
   "USER_EDIT_FORM_CONTRACT_ID"    : "Contract ID",
   "USER_EDIT_FORM_NUMBER_OF_SLOTS": "Number of parking slots",
   "USER_EDIT_FORM_COMPANY"        : "Company",

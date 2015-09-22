@@ -185,6 +185,19 @@ public class UserController {
 		userService.updateUserInfoByUserId(userId, userInfoEntity);
 		return;
 	}
+	
+	@RequestMapping(value = "/user/search", method = RequestMethod.GET)
+	public @ResponseBody Map<Integer, String> getAllCustomer(
+			HttpServletRequest request, HttpServletResponse response) {
+
+		// TODO implement check for UserRole is admin
+		String token = request.getHeader("token");
+
+		Map<Integer, String> customerIdMap = userService
+				.getAllCustomer();
+
+		return customerIdMap;
+	}
 
 	@RequestMapping(value = "/user/search/{customerId}", method = RequestMethod.GET)
 	public @ResponseBody Map<Integer, String> searchUserByCustomerId(

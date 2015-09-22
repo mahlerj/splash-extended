@@ -3,4 +3,4 @@
 /**
  * Directives
  */
-angular.module('apcoa.directives', []);
+angular.module('logicline.directives', []);

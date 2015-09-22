@@ -1,12 +1,26 @@
 'use strict';
 
-angular.module('apcoa.services').factory('SearchService', [
+angular.module('logicline.services').factory('SearchService', [
     'apiUserService',
     'apiContractService',
 
 function(apiUserService, apiContractService) {
     var searchResult = {},
         resultsList = [];
+    
+    function getAllCustomer() {
+        return apiUserService.getAllCustomer().then(function(response) {
+            if (response.isError) {
+                return response;
+            }
+            setResultsList(response);
+            return resultsList;
+        });
+        /*return apiContractService.getList().then(function(response) {
+            //resultsList = response;
+            return resultsList;
+        });*/
+    };
 
      function searchData(customerId, contractId) {
         return apiUserService.getSearchedListByCustomerId(customerId).then(function(response) {
@@ -76,6 +90,7 @@ function(apiUserService, apiContractService) {
 
     return {
         searchData     : searchData,
+        getAllCustomer : getAllCustomer,
         chooseResult   : chooseResult,
         getResultsList : getResultsList,
         getResult      : getResult,

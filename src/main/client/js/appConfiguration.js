@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('apcoa')
+angular.module('logicline')
 /*localStorageServiceProvider */
 .config(['localStorageServiceProvider', function(localStorageServiceProvider) {
-  localStorageServiceProvider.setPrefix('apcoa');
+  localStorageServiceProvider.setPrefix('logicline');
 }])
 /*
  * Avoid dynamically added field names getting ignored by the form validation
@@ -54,9 +54,9 @@ angular.module('apcoa')
   $translatePartialLoaderProvider.addPart('user');
 
   $translateProvider.useLoader('$translatePartialLoader', {
-    urlTemplate: 'js/i18n/apcoa/{part}/{lang}.json'
+    urlTemplate: 'js/i18n/logicline/{part}/{lang}.json'
   });
 
-  $translateProvider.preferredLanguage('se_SE');
-  $translateProvider.fallbackLanguage('se_SE');
+  $translateProvider.preferredLanguage('en_US');
+  $translateProvider.fallbackLanguage('en_US');
 }]);

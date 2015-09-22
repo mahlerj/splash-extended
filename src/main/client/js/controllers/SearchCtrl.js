@@ -1,20 +1,38 @@
 'use strict';
 
 angular
-.module('apcoa.controllers')
+.module('logicline.controllers')
 .controller('SearchCtrl', [
 '$rootScope',
 '$scope',
+'$filter',
 'SearchService',
 
-function($rootScope, $scope, SearchService) {
+function($rootScope, $scope, $filter, SearchService) {
 	$scope.customerId = null;
 	$scope.contractId = null;
 	$scope.searchResult = null;
 	$scope.resultsList = null;
+	$scope.filteredCustomers = [];
 	$scope.isResultList = false;
 	$scope.isResultChosen = false;
-
+	$scope.filteredCount = 0;
+	
+	(function init() {
+        // load data, init scope, etc.
+		SearchService.getAllCustomer().then(function(response) {
+			if (response.isError) {
+				return;
+			}
+			$scope.resultsList = [];
+			if (!!response.length) {
+				$scope.isResultList = true;
+				$scope.resultsList = response;
+				$scope.filteredCustomers = response;
+			}
+		});
+    })();
+	
 	if ($scope.$state.current.name !== 'customer_search') {
 		$scope.resultsList = SearchService.getResultsList();
 		$scope.searchResult = SearchService.getResult();
@@ -27,13 +45,29 @@ function($rootScope, $scope, SearchService) {
 		delete $rootScope.searchUserIdFk;
 		delete $rootScope.isSearchActive;
 	}
-
+	
+	$scope.filterCustomers = function () {
+        $scope.filteredCustomers = $filter("customerFilter")($scope.resultsList, $scope.customerId);
+		$scope.filteredCount = $scope.filteredCustomers.length;
+    };
+	
 	$scope.searchData = function() {
+		
 		if((!angular.isString($scope.customerId) || $scope.customerId === '') && 
 			(!angular.isString($scope.contractId) || $scope.contractId === '')) {
-			return;
+			SearchService.getAllCustomer().then(function(response) {
+				if (response.isError) {
+					return;
+				}
+				$scope.resultsList = [];
+				if (!!response.length) {
+					$scope.isResultList = true;
+					$scope.resultsList = response;
+					$scope.filteredCustomers = response;
+				}
+			});
 		}
-
+		
 		SearchService.searchData($scope.customerId, $scope.contractId).then(function(response) {
 			if (response.isError) {
 				return;
@@ -43,6 +77,7 @@ function($rootScope, $scope, SearchService) {
 			if (!!response.length) {
 				$scope.isResultList = true;
 				$scope.resultsList = response;
+				$scope.filteredCustomers = response;
 			}
 		});
 	};

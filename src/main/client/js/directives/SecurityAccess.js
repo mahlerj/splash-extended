@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apcoa.directives')
+angular.module('logicline.directives')
 .directive('access', [
 'appAuthorizationService',
 

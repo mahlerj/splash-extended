@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-.module('apcoa.controllers')
+.module('logicline.controllers')
 .controller('ContractCtrl', [
 '$state',
 '$scope',

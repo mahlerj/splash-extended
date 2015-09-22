@@ -3,7 +3,7 @@
 /**
  * Services: API User
   */
-angular.module('apcoa.services')
+angular.module('logicline.services')
 .factory('apiUserService', [
 'Restangular',
 'apiBaseResponses',
@@ -72,6 +72,12 @@ function(Restangular, apiBaseResponses) {
               .one('user/edit')
               .get()
               .then(apiBaseResponses.onSuccess, apiBaseResponses.onError);
+    },
+    getAllCustomer: function() {
+        return Restangular
+                .one('user/search')
+                .get()
+                .then(apiBaseResponses.onSuccess, apiBaseResponses.onError);
     },
     getSearchedListByCustomerId: function(customerId) {
       return Restangular

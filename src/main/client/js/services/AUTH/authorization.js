@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apcoa.services').factory('appAuthorizationService', [
+angular.module('logicline.services').factory('appAuthorizationService', [
     'appAuthenticationService',
 
 function(appAuthenticationService) {

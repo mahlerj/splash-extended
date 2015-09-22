@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apcoa.services').factory('appAuthenticationService', [
+angular.module('logicline.services').factory('appAuthenticationService', [
     'localStorageService',
     'apiUserService',
     '$rootScope',

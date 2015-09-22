@@ -4,91 +4,63 @@
 
 <!-- Start: Content -->
 <div class="content__inner">
-  <div class="row">
-    <div class="small-12 columns">
-      <h3 class="headline--border">
-        {{ 'DASHBOARD_HEADLINE' | translate }}
-      </h3>
-      <p class="content--text">
-        {{ 'DASHBOARD_SUBHEADLINE' | translate }}
-      </p>
-    </div>
-  </div>
-  <div class="row spacing--top--15">
-      <!-- Start: Dashboard -->
-      <div  class="small-12 columns spacing--top--15">
-        <div class="small-12 medium-5 large-4 columns box box--cerulean cursor--pointer"
-              ng-click="goTo('customer_search');" access="Admin,CSC Admin" access-is-rendered="FALSE">
-          <p class="box__headline text--white">
-            {{ 'DASHBOARD_BOX_SEARCH_CUSTOMER_HEADLINE' | translate }}
-          </p>
-          <p class="box__content">
-            {{ 'DASHBOARD_BOX_SEARCH_CUSTOMER_CONTENT' | translate }}
-          </p>
-        </div>
+	<div class="row">
+		<div class="small-12 columns">
+			<h3 class="headline--border">{{ 'DASHBOARD_HEADLINE' | translate
+				}}</h3>
+			<p class="content--text">{{ 'DASHBOARD_SUBHEADLINE' | translate
+				}}</p>
+		</div>
+	</div>
+	<div class="row spacing--top--15">
+		<!-- Start: Dashboard -->
+		<div class="small-12 columns spacing--top--15">
+			<div
+				class="small-12 medium-3 columns box box--cerulean cursor--pointer"
+				ng-click="goTo('customer_search');" access="Admin,CSC Admin"
+				access-is-rendered="FALSE">
+				<p class="box__headline">{{
+					'DASHBOARD_BOX_SEARCH_CUSTOMER_HEADLINE' | translate }}</p>
+				<p class="box__content">{{
+					'DASHBOARD_BOX_SEARCH_CUSTOMER_CONTENT' | translate }}</p>
+			</div>
 
-        <div class="show-for-small-only small-12 columns">
-          &nbsp;
-        </div>
+			<div class="show-for-small-only small-12 columns">&nbsp;</div>
 
-        <div class="small-12 medium-5 medium-pull-1 large-4 large-pull-3 columns box box--cerulean cursor--pointer"
-              ng-click="goTo('customer_create');" access="Admin,CSC Admin" access-is-rendered="FALSE">
-          <p class="box__headline text--white">
-            {{ 'DASHBOARD_BOX_CREATE_CUSTOMER_HEADLINE' | translate }}
-          </p>
-          <p class="box__content">
-            {{ 'DASHBOARD_BOX_CREATE_CUSTOMER_CONTENT' | translate }}
-          </p>
-        </div>
-      </div>
+			<div
+				class="small-12 medium-3 columns box box--cerulean cursor--pointer"
+				ng-click="goTo('customer_create');" access="Admin,CSC Admin"
+				access-is-rendered="FALSE">
+				<p class="box__headline">{{
+					'DASHBOARD_BOX_CREATE_CUSTOMER_HEADLINE' | translate }}</p>
+				<p class="box__content">{{
+					'DASHBOARD_BOX_CREATE_CUSTOMER_CONTENT' | translate }}</p>
+			</div>
 
-      <div class="small-12 columns spacing--top--15">
-        <div class="small-12 medium-5 large-4 columns box box--cerulean cursor--pointer"
-              ng-click="goTo('contract_list');" access="User" access-is-rendered="FALSE">
-          <p class="box__headline text--white">
-            {{ 'DASHBOARD_BOX_VRM_HEADLINE' | translate }}
-          </p>
-          <p class="box__content">
-            {{ 'DASHBOARD_BOX_VRM_CONTENT' | translate }}
-          </p>
-        </div>
+			<div
+				class="small-12 medium-3 columns box box--cerulean cursor--pointer"
+				ng-click="goTo('user_edit');" access="CSC Admin"
+				access-is-rendered="FALSE">
+				<p class="box__headline">{{
+					'DASHBOARD_BOX_PERSONAL_DATA_HEADLINE' | translate }}</p>
+				<p class="box__content">{{ 'DASHBOARD_BOX_PERSONAL_DATA_CONTENT'
+					| translate }}</p>
+			</div>
 
-        <div class="small-12 medium-5 large-4 columns box box--cerulean cursor--pointer"
-              ng-click="goTo('customer_upload');" access="Admin" access-is-rendered="FALSE">
-          <p class="box__headline text--white">
-            {{ 'DASHBOARD_BOX_UPLOAD_CUSTOMER_HEADLINE' | translate }}
-          </p>
-          <p class="box__content">
-            {{ 'DASHBOARD_BOX_UPLOAD_CUSTOMER_CONTENT' | translate }}
-          </p>
-        </div>
+			<div class="show-for-small-only small-12 columns">&nbsp;</div>
 
-        <div class="small-12 medium-5 large-4 columns box box--cerulean cursor--pointer"
-              ng-click="goTo('user_edit');" access="CSC Admin" access-is-rendered="FALSE">
-          <p class="box__headline text--white">
-            {{ 'DASHBOARD_BOX_PERSONAL_DATA_HEADLINE' | translate }}
-          </p>
-          <p class="box__content">
-            {{ 'DASHBOARD_BOX_PERSONAL_DATA_CONTENT' | translate }}
-          </p>
-        </div>
+			<div
+				class="small-12 medium-3 columns box box--cerulean cursor--pointer"
+				ng-click="goTo('user_edit');" access="User,Admin"
+				access-is-rendered="FALSE">
+				<p class="box__headline">{{
+					'DASHBOARD_BOX_PERSONAL_DATA_HEADLINE' | translate }}</p>
+				<p class="box__content">{{ 'DASHBOARD_BOX_PERSONAL_DATA_CONTENT'
+					| translate }}</p>
+			</div>
+		</div>
 
-        <div class="show-for-small-only small-12 columns">
-          &nbsp;
-        </div>
-
-        <div class="small-12 medium-5 medium-pull-1 large-4 large-pull-3 columns box box--cerulean cursor--pointer"
-              ng-click="goTo('user_edit');" access="User,Admin" access-is-rendered="FALSE">
-          <p class="box__headline text--white">
-            {{ 'DASHBOARD_BOX_PERSONAL_DATA_HEADLINE' | translate }}
-          </p>
-          <p class="box__content">
-            {{ 'DASHBOARD_BOX_PERSONAL_DATA_CONTENT' | translate }}
-          </p>
-        </div>
-      </div>
-
-      <!-- End: Dashboard -->
-  </div>
+		<!-- End: Dashboard -->
+	</div>
 </div>
 <!-- End: Content -->

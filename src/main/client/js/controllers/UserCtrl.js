@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apcoa.controllers')
+angular.module('logicline.controllers')
 .controller('UserCtrl', [
 '$scope',
 'apiUserService',

@@ -1,5 +1,5 @@
 {
-  "LOGIN_HEADLINE"             : "Log on to APCOA PARKING - Contract Parker Self Service",
+  "LOGIN_HEADLINE"             : "Log on to logicline Customer Service",
   "LOGIN_SUBHEADLINE"          : "Please enter your credentials.",
   "LOGIN_ERROR"                : "Wrong credentials.",
   "LOGIN_LOCK_ERROR"           : "The log in is locked. Please try again in {{minutes}} minutes.",

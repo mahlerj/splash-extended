@@ -1,6 +1,6 @@
 {
-  "name": "Apcoa",
-  "author": "Apcoa Developer",
+  "name": "logicline",
+  "author": "logicline Developer",
   "private": "true",
   "devDependencies": {
     "angularjs": "~1.3.14",

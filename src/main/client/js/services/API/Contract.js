@@ -3,7 +3,7 @@
 /**
  * Services: API Contract
  */
-angular.module('apcoa.services')
+angular.module('logicline.services')
 .factory('apiContractService', [
   'Restangular',
   'apiBaseResponses',

@@ -1,1 +1,1 @@
-'use strict';angular.module('apcoa.services', []);
+'use strict';angular.module('logicline.services', []);

@@ -1,7 +1,7 @@
 {
-  "name": "apcoa",
+  "name": "logicline",
   "version": "1.0.0",
-  "description": "Apcoa",
+  "description": "logicline",
   "dependencies": {
     "bower": "*",
     "grunt": "*",

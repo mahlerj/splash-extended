@@ -3,7 +3,7 @@
 /**
  * Services: API VRM
  */
-angular.module('apcoa.services')
+angular.module('logicline.services')
 .factory('apiVRMService', [
 'Restangular',
 'apiBaseResponses',

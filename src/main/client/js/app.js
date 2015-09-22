@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('apcoa', [
+angular.module('logicline', [
   'ui.router',
-  'apcoa.controllers',
-  'apcoa.directives',
-  'apcoa.services',
-  'apcoa.filters',
+  'logicline.controllers',
+  'logicline.directives',
+  'logicline.services',
+  'logicline.filters',
   'restangular',
   'LocalStorageModule',
   'pascalprecht.translate',
@@ -28,7 +28,7 @@ angular.module('apcoa', [
 		$window.location.href = $location.absUrl().replace('http', 'https');
 	  }
     } else {
-		$rootScope.origin = 'http://localhost:8080/apcoaparkingportal';
+		$rootScope.origin = 'http://localhost:8080/logiclineportal';
 	}
 
     if (appAuthorizationService.isAuthorized()) {
