@@ -100,6 +100,11 @@
             <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
         </bean>
         
+          <jdbc:initialize-database data-source="dataSource" ignore-failures="DROPS">
+			<jdbc:script location="classpath:schema.sql"/>
+            <jdbc:script location="classpath:test-data.sql"/>
+		 </jdbc:initialize-database> 
+        
         <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
             <property name="dataSource" ref="dataSource"/>
             <property name="jpaVendorAdapter">
@@ -109,8 +114,9 @@
                 <props>
                     <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
                     <prop key="hibernate.show_sql">true</prop>
-                    <!-- change this to 'verify' before running as a production app -->
-                    <prop key="hibernate.hbm2ddl.auto">update</prop>
+                    <!--prop key="hibernate.hbm2ddl.auto">update</prop-->
+                    <prop key="hibernate.generate_ddl">false</prop>
+					<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
                 </props>
             </property>
         </bean>
