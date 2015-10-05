@@ -1,4 +1,4 @@
-package de.logicline.parkingportal.utils;
+package de.logicline.herokutemplate.utils;
 
 public class Enums {
 	

@@ -1,7 +1,7 @@
-package de.logicline.parkingportal.utils;
+package de.logicline.herokutemplate.utils;
 
-import de.logicline.parkingportal.model.ContractInfoEntity;
-import de.logicline.parkingportal.model.UserInfoEntity;
+import de.logicline.herokutemplate.model.ContractInfoEntity;
+import de.logicline.herokutemplate.model.UserInfoEntity;
 
 public class CreateUserWithContract {
 	UserInfoEntity userInfoEntity;

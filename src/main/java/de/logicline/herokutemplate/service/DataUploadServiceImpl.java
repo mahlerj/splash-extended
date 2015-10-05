@@ -1,4 +1,4 @@
-package de.logicline.parkingportal.service;
+package de.logicline.herokutemplate.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,13 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import de.logicline.parkingportal.model.ContractInfoEntity;
-import de.logicline.parkingportal.model.UserEntity;
-import de.logicline.parkingportal.model.UserInfoEntity;
-import de.logicline.parkingportal.model.VRMEntity;
-import de.logicline.parkingportal.utils.Enums;
-import de.logicline.parkingportal.utils.PasswordGenerator;
-import de.logicline.parkingportal.utils.StringUtilMethods;
+import de.logicline.herokutemplate.model.ContractInfoEntity;
+import de.logicline.herokutemplate.model.UserEntity;
+import de.logicline.herokutemplate.model.UserInfoEntity;
+import de.logicline.herokutemplate.model.VRMEntity;
+import de.logicline.herokutemplate.utils.Enums;
+import de.logicline.herokutemplate.utils.PasswordGenerator;
+import de.logicline.herokutemplate.utils.StringUtilMethods;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

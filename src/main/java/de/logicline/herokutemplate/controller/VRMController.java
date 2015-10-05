@@ -1,4 +1,4 @@
-package de.logicline.parkingportal.controller;
+package de.logicline.herokutemplate.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import de.logicline.parkingportal.model.VRMEntity;
-import de.logicline.parkingportal.service.VRMService;
+import de.logicline.herokutemplate.model.VRMEntity;
+import de.logicline.herokutemplate.service.VRMService;
 import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;

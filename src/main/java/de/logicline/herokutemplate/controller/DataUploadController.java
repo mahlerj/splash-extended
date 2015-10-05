@@ -1,4 +1,4 @@
-package de.logicline.parkingportal.controller;
+package de.logicline.herokutemplate.controller;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import de.logicline.parkingportal.model.UserEntity;
-import de.logicline.parkingportal.service.DataUploadService;
+import de.logicline.herokutemplate.model.UserEntity;
+import de.logicline.herokutemplate.service.DataUploadService;
 
 
 

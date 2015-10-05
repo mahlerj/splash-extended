@@ -1,4 +1,4 @@
-package de.logicline.parkingportal.controller;
+package de.logicline.herokutemplate.controller;
 
 import net.tanesha.recaptcha.ReCaptchaImpl;
 import net.tanesha.recaptcha.ReCaptchaResponse;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import de.logicline.parkingportal.model.ContractInfoEntity;
-import de.logicline.parkingportal.model.UserEntity;
-import de.logicline.parkingportal.model.UserInfoEntity;
-import de.logicline.parkingportal.service.ContractService;
-import de.logicline.parkingportal.service.UserService;
-import de.logicline.parkingportal.utils.CreateUserWithContract;
+import de.logicline.herokutemplate.model.ContractInfoEntity;
+import de.logicline.herokutemplate.model.UserEntity;
+import de.logicline.herokutemplate.model.UserInfoEntity;
+import de.logicline.herokutemplate.service.ContractService;
+import de.logicline.herokutemplate.service.UserService;
+import de.logicline.herokutemplate.utils.CreateUserWithContract;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;

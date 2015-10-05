@@ -1,4 +1,4 @@
-package de.logicline.parkingportal.model;
+package de.logicline.herokutemplate.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,11 +1,11 @@
-package de.logicline.parkingportal.service;
+package de.logicline.herokutemplate.service;
 
 
 import java.util.List;
 import java.util.Map;
 
-import de.logicline.parkingportal.model.UserEntity;
-import de.logicline.parkingportal.model.UserInfoEntity;
+import de.logicline.herokutemplate.model.UserEntity;
+import de.logicline.herokutemplate.model.UserInfoEntity;
 
 public interface UserService {
     

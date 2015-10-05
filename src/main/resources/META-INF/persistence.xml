@@ -6,14 +6,5 @@
 
     <persistence-unit name="dataSource" transaction-type="RESOURCE_LOCAL">
     </persistence-unit>
-<!--  
-	 <persistence-unit name="Default">
-     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-     <jta-data-source>java:/dataSource</jta-data-source>
-     <class>de.logicline.parkingportal.model.UserEntity</class>     
-     <properties>
-       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-     </properties>
-  </persistence-unit>
--->
+
 </persistence>

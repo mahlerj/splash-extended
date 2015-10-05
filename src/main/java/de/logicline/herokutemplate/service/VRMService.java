@@ -1,8 +1,8 @@
-package de.logicline.parkingportal.service;
+package de.logicline.herokutemplate.service;
 
 
 import java.util.List;
-import de.logicline.parkingportal.model.VRMEntity;
+import de.logicline.herokutemplate.model.VRMEntity;
 
 public interface VRMService {
 	

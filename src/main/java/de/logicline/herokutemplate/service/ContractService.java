@@ -1,8 +1,8 @@
-package de.logicline.parkingportal.service;
+package de.logicline.herokutemplate.service;
 
 import java.util.List;
 import java.util.Map;
-import de.logicline.parkingportal.model.ContractInfoEntity;
+import de.logicline.herokutemplate.model.ContractInfoEntity;
 
 
 public interface ContractService {

@@ -1,4 +1,4 @@
-package de.logicline.parkingportal.service;
+package de.logicline.herokutemplate.service;
 
 import org.springframework.web.multipart.MultipartFile;
 

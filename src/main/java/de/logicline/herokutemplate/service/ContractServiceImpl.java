@@ -1,4 +1,4 @@
-package de.logicline.parkingportal.service;
+package de.logicline.herokutemplate.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import de.logicline.parkingportal.model.ContractInfoEntity;
-import de.logicline.parkingportal.model.UserEntity;
+import de.logicline.herokutemplate.model.ContractInfoEntity;
+import de.logicline.herokutemplate.model.UserEntity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;

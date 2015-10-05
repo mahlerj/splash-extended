@@ -1,11 +1,11 @@
-package de.logicline.parkingportal.service;
+package de.logicline.herokutemplate.service;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import de.logicline.parkingportal.model.ContractInfoEntity;
-import de.logicline.parkingportal.model.UserEntity;
-import de.logicline.parkingportal.model.VRMEntity;
+import de.logicline.herokutemplate.model.ContractInfoEntity;
+import de.logicline.herokutemplate.model.UserEntity;
+import de.logicline.herokutemplate.model.VRMEntity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;

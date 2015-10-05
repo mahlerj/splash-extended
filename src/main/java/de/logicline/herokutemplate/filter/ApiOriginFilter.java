@@ -1,4 +1,4 @@
-package de.logicline.parkingportal.filter;
+package de.logicline.herokutemplate.filter;
 
 import java.io.IOException;
 
