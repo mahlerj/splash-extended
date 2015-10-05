@@ -15,44 +15,20 @@ CREATE TABLE UserEntity(
   	
 );
 
-CREATE TABLE UserInfoEntity (
-        userInfoId SERIAL PRIMARY KEY,
-        userIdFk INTEGER references UserEntity(userId),
-       	customerId varchar(255),	
-       	typ varchar(255),	
-        identityNr varchar(255),
-        orgNr varchar(255),
-        company varchar(255),	
-        invoiceLab varchar(255),
-        facilityNr varchar(255),
-        contactPersNr varchar(255),	
-        email varchar(255),
-        mainPoPox varchar(255),
-        mainStreet varchar(255),
-        mainZipcode varchar(255),
-        mainCity varchar(255),
-        mainName varchar(255),
-        mainSurname varchar(255),
-        billingPoPox varchar(255),
-        billingStreet varchar(255),	
-        billingZipcode varchar(255),
-        billingCity varchar(255),
-        billingName varchar(255),
-        billingSurname varchar(255)
+CREATE TABLE ContactEntity
+(
+	id serial NOT NULL,
+	userIdFk INTEGER references UserEntity(userId),
+	customerId character varying(40),
+	email character varying(80),
+  	firstname character varying(40),
+  	lastname character varying(80),
+  	name character varying(121),
+  	mailingcity character varying(40),
+  	mailingcountry character varying(80),
+  	mailingpostalcode character varying(20),
+  	mailingstreet character varying(255),
+  	phone character varying(40),
+  	CONSTRAINT contact_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE ContractInfoEntity (
-        contractInfoId SERIAL PRIMARY KEY,
-		userIdFk INTEGER references UserEntity(userId),
-       	contractId varchar(255),
-       	facilityName varchar(255),
-       	parkingLotCount INTEGER      	
-);
-
-CREATE TABLE VRMEntity (
-        vrmId SERIAL PRIMARY KEY,
-		userIdFk INTEGER references UserEntity(userId),
-       	contractInfoIdFk INTEGER references ContractInfoEntity(contractInfoId),
-		vrmName varchar(255),
-		description varchar(255)
-);
