@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import de.logicline.herokutemplate.model.ContactEntity;
 
 @Entity
-public class UserInfoEntity {
+public class ContactDto {
 
 	@Id
 	@GeneratedValue
@@ -30,12 +30,6 @@ public class UserInfoEntity {
 	private String mainCity;
 	private String mainName;
 	private String mainSurname;
-	private String billingPoPox;
-	private String billingStreet;
-	private String billingZipcode;
-	private String billingCity;
-	private String billingName;
-	private String billingSurname;
 
 	public Integer getUserInfoId() {
 		return userInfoId;
@@ -173,60 +167,11 @@ public class UserInfoEntity {
 		this.mainSurname = mainSurname;
 	}
 
-	public String getBillingPoPox() {
-		return billingPoPox;
-	}
-
-	public void setBillingPoPox(String billingPoPox) {
-		this.billingPoPox = billingPoPox;
-	}
-
-	public String getBillingStreet() {
-		return billingStreet;
-	}
-
-	public void setBillingStreet(String billingStreet) {
-		this.billingStreet = billingStreet;
-	}
-
-	public String getBillingZipcode() {
-		return billingZipcode;
-	}
-
-	public void setBillingZipcode(String billingZipcode) {
-		this.billingZipcode = billingZipcode;
-	}
-
-	public String getBillingCity() {
-		return billingCity;
-	}
-
-	public void setBillingCity(String billingCity) {
-		this.billingCity = billingCity;
-	}
-
-	public String getBillingName() {
-		return billingName;
-	}
-
-	public void setBillingName(String billingName) {
-		this.billingName = billingName;
-	}
-
-	public String getBillingSurname() {
-		return billingSurname;
-	}
-
-	public void setBillingSurname(String billingSurname) {
-		this.billingSurname = billingSurname;
-	}
-
 	public ContactEntity toEntity(ContactEntity contactEntity) {
 
 		// not changeable
 		// contactEntity.setId(getUserInfoId());
 		// contactEntity.setSfid(getUserIdFk());
-
 		contactEntity.setCustomerId(getCustomerId());
 		contactEntity.setEmail(getEmail());
 		contactEntity.setFirstName(getMainName());

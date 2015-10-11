@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import de.logicline.herokutemplate.dto.UserInfoEntity;
+import de.logicline.herokutemplate.dto.ContactDto;
 
 @Entity
 public class ContactEntity {
@@ -113,8 +113,8 @@ public class ContactEntity {
 		this.phone = phone;
 	}
 
-	public UserInfoEntity toDto() {
-		UserInfoEntity result = new UserInfoEntity();
+	public ContactDto toDto() {
+		ContactDto result = new ContactDto();
 		result.setUserInfoId(getId());
 		result.setUserIdFk(getUserIdFk());
 		result.setCompany("nothing");

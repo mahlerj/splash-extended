@@ -3,7 +3,7 @@ package de.logicline.herokutemplate.service;
 import java.util.List;
 import java.util.Map;
 
-import de.logicline.herokutemplate.dto.UserInfoEntity;
+import de.logicline.herokutemplate.dto.ContactDto;
 import de.logicline.herokutemplate.model.ContactEntity;
 import de.logicline.herokutemplate.model.UserEntity;
 
@@ -11,7 +11,7 @@ public interface UserService {
 
 	public UserEntity getUserByNameAndPassword(String username, String password);
 
-	public Integer createUser(UserInfoEntity userInfoEntity);
+	public Integer createUser(ContactDto contactDto);
 
 	public List<ContactEntity> getContactList();
 
@@ -19,10 +19,10 @@ public interface UserService {
 
 	public ContactEntity getContactByUserId(Integer userId);
 
-	public void updateUserInfo(String token, UserInfoEntity userInfoEntity);
+	public void updateUserInfo(String token, ContactDto contactDto);
 
 	public void updateUserInfoByUserId(Integer userId,
-			UserInfoEntity userInfoEntity);
+			ContactDto contactDto);
 
 	public void updatePassword(Integer userId);
 

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import de.logicline.herokutemplate.dto.UserInfoEntity;
+import de.logicline.herokutemplate.dto.ContactDto;
 import de.logicline.herokutemplate.model.ContactEntity;
 import de.logicline.herokutemplate.model.UserEntity;
 import de.logicline.herokutemplate.service.UserService;
@@ -113,8 +113,9 @@ public class UserController {
 		return;
 	}
 
+	@Deprecated
 	@RequestMapping(value = "/user/edit", method = RequestMethod.GET)
-	public @ResponseBody UserInfoEntity getContact(HttpServletRequest request,
+	public @ResponseBody ContactDto getContact(HttpServletRequest request,
 			HttpServletResponse response) {
 
 		String token = request.getHeader("token");
@@ -124,13 +125,13 @@ public class UserController {
 			return null;
 		}
 
-		// TODO replace userInfoEntity
+		// TODO replace contactDto
 		return contactEntity.toDto();
 
 	}
 
 	@RequestMapping(value = "/user/edit/{userId}", method = RequestMethod.GET)
-	public @ResponseBody UserInfoEntity getUserInfoByUserId(
+	public @ResponseBody ContactDto getUserInfoByUserId(
 			@PathVariable("userId") Integer userId, HttpServletRequest request,
 			HttpServletResponse response) {
 
@@ -148,30 +149,29 @@ public class UserController {
 
 	@RequestMapping(value = "/user/create", method = RequestMethod.POST)
 	public @ResponseBody void createUserInfoById(
-			@RequestBody final UserInfoEntity userInfoEntity,
+			@RequestBody final ContactDto contactDto,
 			HttpServletRequest request, HttpServletResponse response) {
 
-		Integer userIdFk = userService.createUser(userInfoEntity);
+		Integer userIdFk = userService.createUser(contactDto);
 
 		return;
 	}
 
 	@RequestMapping(value = "/user/edit", method = RequestMethod.PUT)
-	public void updateUserInfo(
-			@RequestBody final UserInfoEntity userInfoEntity,
+	public void updateUserInfo(@RequestBody final ContactDto contactDto,
 			HttpServletRequest request, HttpServletResponse response) {
 		String token = request.getHeader("token");
-		userService.updateUserInfo(token, userInfoEntity);
+		userService.updateUserInfo(token, contactDto);
 		return;
 	}
 
 	@RequestMapping(value = "/user/edit/{userId}", method = RequestMethod.PUT)
 	public void updateUserInfoById(@PathVariable("userId") Integer userId,
-			@RequestBody final UserInfoEntity userInfoEntity,
+			@RequestBody final ContactDto contactDto,
 			HttpServletRequest request, HttpServletResponse response) {
 		// TODO implement check for UserRole is admin
 		String token = request.getHeader("token");
-		userService.updateUserInfoByUserId(userId, userInfoEntity);
+		userService.updateUserInfoByUserId(userId, contactDto);
 		return;
 	}
 

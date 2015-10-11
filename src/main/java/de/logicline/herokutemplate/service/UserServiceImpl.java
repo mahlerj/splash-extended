@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import de.logicline.herokutemplate.dao.ContactDao;
 import de.logicline.herokutemplate.dao.UserDao;
-import de.logicline.herokutemplate.dto.UserInfoEntity;
+import de.logicline.herokutemplate.dto.ContactDto;
 import de.logicline.herokutemplate.model.ContactEntity;
 import de.logicline.herokutemplate.model.UserEntity;
 import de.logicline.herokutemplate.utils.Enums;
@@ -39,19 +39,19 @@ public class UserServiceImpl implements UserService {
 	ContactDao contactDao;
 
 	@Transactional
-	public Integer createUser(UserInfoEntity userInfoEntity) {
+	public Integer createUser(ContactDto contactDto) {
 
 		UserEntity ue = new UserEntity();
-		ue.setUsername(userInfoEntity.getCustomerId());
+		ue.setUsername(contactDto.getCustomerId());
 		String password = new PasswordGenerator().generatePswd(10, 10, 2, 2, 2);
 		ue.setPassword(password);
 		String token = DigestUtils.md5Hex(password
-				+ userInfoEntity.getCustomerId());
+				+ contactDto.getCustomerId());
 		ue.setToken(token);
 		ue.setRole(Enums.UserRole.ROLE_CUSTOMER.name());
 		userDao.create(ue);
-		userInfoEntity.setUserIdFk(ue.getUserId());
-		contactDao.create(userInfoEntity.toEntity(new ContactEntity()));
+		contactDto.setUserIdFk(ue.getUserId());
+		contactDao.create(contactDto.toEntity(new ContactEntity()));
 
 		return ue.getUserId();
 	};
@@ -137,36 +137,36 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Transactional
-	public void updateUserInfo(String token, UserInfoEntity userInfoEntity) {
+	public void updateUserInfo(String token, ContactDto contactDto) {
 		ContactEntity contactOld = getContact(token);
-		if (contactOld.getUserIdFk().equals(userInfoEntity.getUserIdFk())) {
-			ContactEntity contactUpdated = userInfoEntity.toEntity(contactOld);
+		if (contactOld.getUserIdFk().equals(contactDto.getUserIdFk())) {
+			ContactEntity contactUpdated = contactDto.toEntity(contactOld);
 			contactDao.edit(contactUpdated);
 		}
 	}
 
 	@Transactional
 	public void updateUserInfoByUserId(Integer userId,
-			UserInfoEntity userInfoEntity) {
+			ContactDto contactDto) {
 		ContactEntity contactOld = getContactByUserId(userId);
-		if (contactOld.getUserIdFk().equals(userInfoEntity.getUserIdFk())) {
-			ContactEntity contactUpdated = userInfoEntity.toEntity(contactOld);
+		if (contactOld.getUserIdFk().equals(contactDto.getUserIdFk())) {
+			ContactEntity contactUpdated = contactDto.toEntity(contactOld);
 			contactDao.edit(contactUpdated);
 		}
 	}
 
 	public Map<Integer, String> searchUserByCustomerId(String customerId) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<UserInfoEntity> cq = cb.createQuery(UserInfoEntity.class);
-		Root<UserInfoEntity> userInfo = cq.from(UserInfoEntity.class);
+		CriteriaQuery<ContactDto> cq = cb.createQuery(ContactDto.class);
+		Root<ContactDto> userInfo = cq.from(ContactDto.class);
 		cq.select(userInfo);
 		cq.where(cb.like(userInfo.<String> get("customerId"), "%" + customerId
 				+ "%"));
-		List<UserInfoEntity> resultList = em.createQuery(cq).getResultList();
+		List<ContactDto> resultList = em.createQuery(cq).getResultList();
 
 		Map<Integer, String> customerIdMap = new HashMap<Integer, String>();
 
-		for (UserInfoEntity uie : resultList) {
+		for (ContactDto uie : resultList) {
 			customerIdMap.put(uie.getUserIdFk(), uie.getCustomerId());
 		}
 
