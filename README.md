@@ -1,91 +1,215 @@
 # Heroku Template
 
-Acoa Backend provides a REST API for CRUD operations on customer Data.
+
+REST API Calls to Java _ Tier
 
 ## API Specification
-
-### Login and get a User Token back
-- Request: http://apcoabackend.herokuapp.com/user/login
+###Login and get a User Token back
+- Request: http://localhost:8080/logiclineportal/user/login
 - Method Type: POST
-- Header Values: Content-Type: application/json; 
+- Header Values: Content-Type: application/json;
+Example: 
+- Request Data: {"username":"user1","password":"user1"} 
+- Response Data: {
+    "firstName": "Max",
+    "lastName": "Bauer",
+    "role": "ROLE_CUSTOMER",
+    "userId": "2",
+    "token": "332bc0ddba3c4bc792c4829ff3834ca9"
+}
 
-Example:      
-- Request Data: {"username":"75121-9992-01","password":"1234"}          
-- Response Data: 16b63e94679ec680d1395b541ba7b2ad     
+###Login with CAPTCHA and get a User Token back
+- Request: http://localhost:8080/logiclineportal/user/login
+- Method Type: POST
+- Header Values: Content-Type: application/json;
+Example: 
+- Request Data: {"username":"user1","password":"user1", "recaptcha_challenge_field":"xxxx", "recaptcha_response_field":"yyyy"}
+- Response Data: 
+ResponseCode: 200
+Response Data: {
+    "firstName": "Max",
+    "lastName": "Bauer",
+    "role": "ROLE_CUSTOMER",
+    "userId": "2",
+    "token": "332bc0ddba3c4bc792c4829ff3834ca9"
+}
+ResponseCode: 412 (captcha failed)
+null
+ResponseCode: 401 (login failed)
+null			
 
-### Get User Info Object
-- Request: http://apcoabackend.herokuapp.com/user/edit
-- Method Type: GET
+###Create New User
+- Request: http://localhost:8080/logiclineportal/user/create
+- Method Type: POST
 - Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad
 
-Example:      
+Example: 
 - Request Data:
-- Response Data: {"userInfoId":1,"userIdFk":2,"customerId":"7506-8002-01","typ":"B2B","identityNr":"",
-			"orgNr":"502032-9081","company":"Skandinaviska Enskilda Banken AB","invoiceLab":"",
-			"facilityNr":"08-600 25 50","contactPersNr":"","email":"","mainPoPox":"",
-			"mainStreet":"","mainZipcode":"","mainCity":"","mainName":"","mainSurname":"",
-			"billingPoPox":"","billingStreet":"Lokaladministration/M4","billingZipcode":"106 40",
-			"billingCity":"Stockholm","billingName":"","billingSurname":""}   
-   
-### Update Info Object
-- Request: http://apcoabackend.herokuapp.com/user/edit
+{
+    "customerId": "5121-9992-09",
+    "typ": null,
+    "identityNr": null,
+    "orgNr": null,
+    "company": "nothing",
+    "invoiceLab": null,
+    "facilityNr": null,
+    "contactPersNr": null,
+    "email": "franz@gmx.de",
+    "mainPoPox": "",
+    "mainStreet": "Tueringerstr. 10",
+    "mainZipcode": "71083",
+    "mainCity": "Mannheim",
+    "mainName": "Fraz",
+    "mainSurname": "Zappa"
+}
+
+- Response Data: 
+	id of the new generated user
+
+###Create new Password
+- Request: http://localhost:8080/logiclineportal/user/edit/password/:userIdFk
 - Method Type: PUT
 - Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad
+Example:  
+- Request Data: 
+		 http://localhost:8080/logiclineportal/user/edit/password/2			
+- Response Data:
+		/!o8COfz8h
 
-Example:      
-- Request Data: {"userInfoId":1,"userIdFk":2,"customerId":"7506-8002-01","typ":"B2B","identityNr":"0815",
-			"orgNr":"502032-9081","company":"Skandinaviska Enskilda Banken AB","invoiceLab":"",
-			"facilityNr":"08-600 25 50","contactPersNr":"","email":"","mainPoPox":"",
-			"mainStreet":"","mainZipcode":"","mainCity":"","mainName":"","mainSurname":"",
-			"billingPoPox":"","billingStreet":"Lokaladministration/M4","billingZipcode":"106 40",
-			"billingCity":"Stockholm","billingName":"","billingSurname":""}   		        
-- Response Data: 
-
-### Get Contract List
-- Request: http://apcoabackend.herokuapp.com/contract/list
+### @Deprecated Get Contact Object (for current User)
+- Request: http://localhost:8080/logiclineportal/user/edit
 - Method Type: GET
-- Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad 
+- Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
+Example: 
+- Request Data:
+- Response Data: {
+    "userInfoId": 1,
+    "userIdFk": 2,
+    "customerId": "5121-9992-01",
+    "typ": null,
+    "identityNr": null,
+    "orgNr": null,
+    "company": "nothing",
+    "invoiceLab": null,
+    "facilityNr": null,
+    "contactPersNr": null,
+    "email": "max@gmx.de",
+    "mainPoPox": "",
+    "mainStreet": "Planiestr. 10",
+    "mainZipcode": "71063",
+    "mainCity": "Sindelfingen",
+    "mainName": "Max",
+    "mainSurname": "Bauer"
+}
 
-Example:      
-- Request Data: 
-- Response Data: {"1":"32170-8002-01","2":"32170-8002-02"}
-
-### Get Contract Info (for upper part in edit VRM):
-- Request: http://apcoabackend.herokuapp.com/contract/info?contractInfoId=1
-- Method Type: GET (GET paramter contractInfoId is the key from the chosen Contract i.e. from contract with number "32170-8002-01" )
-- Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad 
-
-Example:      
-- Request Data: 
-- Response Data: {"contractInfo":{"contractInfoId":1,"userIdFk":2,"contractId":"32170-8002-01","facilityName":"Globen","parkingLotCount":3}} MISSING! some attributes from mockup (Customer ID, Prename, Surename etc.)
-
-### Get the VRMs (licence plates) for a choosen Contract
-- Request: http://apcoabackend.herokuapp.com/vrm/edit?contractInfoId=1
-- Method Type: GET (GET paramter contractInfoId is the key from the chosen Contract i.e. from contract with number "32170-8002-01" )
-- Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad 
-
-Example:      
-- Request Data: 
-- Response Data: {"1":"PNC296","2":"PGH111","3":"PGO584","4":"PNB765","5":"PUU253","6":"PHU383","7":"PTT632"}
-	(i.e. 7 vrms already used from 15 possible (parkingLotCount:3) x 5)
-	
-### Update or Delete VRMs
-- Request: http://apcoabackend.herokuapp.com/vrm/edit?contractInfoId=1
-- Method Type: PUT (GET paramter contractInfoId is the key from the chosen Contract i.e. from contract with number "32170-8002-01" )
-- Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad 
-
-Example:      
-- Request Data: {"1":"XXXX","2":"PGH111","3":"PGO584","4":"PNB765","5":"PUU253","6":"PHU383","7":""}
-	(i.e. Nr.1 for update to "XXXX", Nr.7 for delete)
+###Contact Object 
+- Request: http://localhost:8080/logiclineportal/user/edit/:userIdFk
+- Method Type: GET
+- Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
+Updated URL to retrieve UserInfo by User ID field 
+Example: 
+- Request URL: http://localhost:8080/logiclineportal/user/edit/2
+- Request Data:
 - Response Data: 
+{
+    "userInfoId": 1,
+    "userIdFk": 2,
+    "customerId": "5121-9992-01",
+    "typ": null,
+    "identityNr": null,
+    "orgNr": null,
+    "company": "nothing",
+    "invoiceLab": null,
+    "facilityNr": null,
+    "contactPersNr": null,
+    "email": "max@gmx.de",
+    "mainPoPox": "",
+    "mainStreet": "Planiestr. 10",
+    "mainZipcode": "71063",
+    "mainCity": "Sindelfingen",
+    "mainName": "Max",
+    "mainSurname": "Bauer"
+}
 
-### Create / New VRM
-- Request: http://apcoabackend.herokuapp.com/vrm/edit/create?contractInfoId=1
-- Method Type: POST (GET paramter contractInfoId is the key from the chosen Contract i.e. from contract with number "32170-8002-01" )
-- Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad 
 
-Example:      
-- Request Data: ["TTV235", "POI475", "POU273"]
-	(i.e. 3 new VRMs for contract with contractInfoId=1)
-- Response Data: 
-     
+###Get all Contacts 
+- Request: http://localhost:8080/logiclineportal/user/search
+- Method Type: GET
+- Header Values: Content-Type: application/json; token: xyz
+Example: 
+- Request Data: 
+- Response Data:
+{
+    "2": "5121-9992-01",
+    "3": "5121-9992-02"
+} 
+
+### Serch Contacts by customerId (or a part of it)
+- Request: http://localhost:8080/logiclineportal/user/search/:customerId
+- Method Type: GET
+- Header Values: Content-Type: application/json; token: xyz
+Example: 
+- Request Data: http://localhost:8080/logiclineportal/user/search/999
+- Response Data:
+{
+    "2": "5121-9992-01",
+    "3": "5121-9992-02"
+} 
+
+### @Deprecated Update Contact Object (for current User)
+- Request: http://localhost:8080/logiclineportal/user/edit
+- Method Type: PUT
+- Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
+Example: 
+- Request Data: 
+{
+    "userInfoId": 1,
+    "userIdFk": 2,
+    "customerId": "5121-9992-01",
+    "typ": null,
+    "identityNr": null,
+    "orgNr": null,
+    "company": "nothing",
+    "invoiceLab": null,
+    "facilityNr": null,
+    "contactPersNr": null,
+    "email": "max@gmx.de",
+    "mainPoPox": "",
+    "mainStreet": "Planiestr. 10",
+    "mainZipcode": "71063",
+    "mainCity": "Sindelfingen",
+    "mainName": "Max",
+    "mainSurname": "Bauerfeld"
+}
+- Response Data:
+
+###Update Contact Object
+- Request: http://localhost:8080/logiclineportal/user/edit/:userIdFk
+- Method Type: PUT
+- Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
+Updated URL to update UserInfo by User ID field 
+Example: 
+- Request URL: http://localhost:8080/logiclineportal/user/edit/2
+- Request Data: 
+{
+    "userInfoId": 1,
+    "userIdFk": 2,
+    "customerId": "5121-9992-01",
+    "typ": null,
+    "identityNr": null,
+    "orgNr": null,
+    "company": "nothing",
+    "invoiceLab": null,
+    "facilityNr": null,
+    "contactPersNr": null,
+    "email": "max@gmx.de",
+    "mainPoPox": "",
+    "mainStreet": "Planiestr. 10",
+    "mainZipcode": "71063",
+    "mainCity": "Sindelfingen",
+    "mainName": "Max",
+    "mainSurname": "Bauerfeld"
+}
+- Response Data:
+
+
