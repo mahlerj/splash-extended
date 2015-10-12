@@ -18,6 +18,23 @@ public class ContactDaoImpl extends AbstractDaoImpl<ContactEntity> implements
 		super(ContactEntity.class);
 	}
 
+	public ContactEntity getContactByUserId(Integer userId) {
+
+		CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
+		CriteriaQuery<ContactEntity> cq = cb.createQuery(ContactEntity.class);
+		Root<ContactEntity> userInfo = cq.from(ContactEntity.class);
+		cq.select(userInfo);
+		cq.where(cb.equal(userInfo.get("userIdFk"), userId));
+		List<ContactEntity> resultList = em.createQuery(cq).getResultList();
+
+		ContactEntity result = null;
+		if (resultList != null && resultList.size() > 0) {
+			result = resultList.get(0);
+		}
+
+		return result;
+	}
+
 	public List<ContactEntity> findByCustomerId(String id) {
 
 		CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
@@ -30,18 +47,4 @@ public class ContactDaoImpl extends AbstractDaoImpl<ContactEntity> implements
 		return result;
 	}
 
-	public List<ContactEntity> findByCustomerId(String id, String countrySfid) {
-
-		CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
-		CriteriaQuery<ContactEntity> cq = cb.createQuery(ContactEntity.class);
-		Root<ContactEntity> userInfo = cq.from(ContactEntity.class);
-		cq.select(userInfo);
-		cq.where(cb.and(
-				cb.like(userInfo.<String> get("customeridC"), "%" + id + "%"),
-				(cb.equal(userInfo.get("countryC"), countrySfid))));
-
-		List<ContactEntity> result = getEntityManager().createQuery(cq)
-				.getResultList();
-		return result;
-	}
 }

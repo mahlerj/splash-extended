@@ -24,7 +24,7 @@ public class UserDaoImpl extends AbstractDaoImpl<UserEntity> implements UserDao 
 
 		UserEntity result = getUser(token);
 		if (result != null) {
-			return result.getUserId(); // the salesforceid of the contact
+			return result.getUserId();
 		}
 		return null;
 	}
@@ -56,8 +56,7 @@ public class UserDaoImpl extends AbstractDaoImpl<UserEntity> implements UserDao 
 				cb.equal(user.get("password"), password)));
 		List<UserEntity> resultList = getEntityManager().createQuery(cq)
 				.getResultList();
-		// UserEntity result = retrieveUserWithMatchingPassword(resultList,
-		// password);
+
 		if (resultList == null || resultList.size() == 0) {
 			log.debug("UserEntity not found");
 			return null;

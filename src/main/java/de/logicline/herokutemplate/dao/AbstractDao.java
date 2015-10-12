@@ -21,8 +21,6 @@ public interface AbstractDao<T> {
 	 */
 	public abstract T find(Object id);
 
-	// public abstract T findBySfid(String id);
-
 	/**
 	 * Generic remove
 	 * 

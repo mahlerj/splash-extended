@@ -113,8 +113,6 @@ public class UserController {
 	public @ResponseBody String updateUserPassword(
 			@PathVariable("userId") Integer userId, HttpServletRequest request,
 			HttpServletResponse response) {
-		// TODO implement check for UserRole is admin
-		String token = request.getHeader("token");
 
 		String newPassword = userService.updatePassword(userId);
 
@@ -133,7 +131,6 @@ public class UserController {
 			return null;
 		}
 
-		// TODO replace contactDto
 		return contactEntity.toDto();
 
 	}
@@ -142,9 +139,6 @@ public class UserController {
 	public @ResponseBody ContactDto getUserInfoByUserId(
 			@PathVariable("userId") Integer userId, HttpServletRequest request,
 			HttpServletResponse response) {
-
-		// TODO implement check for UserRole is admin
-		String token = request.getHeader("token");
 
 		ContactEntity contactEntity = userService.getContactByUserId(userId);
 		if (contactEntity == null) {
@@ -159,9 +153,6 @@ public class UserController {
 	public @ResponseBody Map<Integer, String> getAllCustomer(
 			HttpServletRequest request, HttpServletResponse response) {
 
-		// TODO implement check for UserRole is admin
-		String token = request.getHeader("token");
-
 		Map<Integer, String> customerIdMap = userService.getCustomerIdMap();
 
 		return customerIdMap;
@@ -171,9 +162,6 @@ public class UserController {
 	public @ResponseBody Map<Integer, String> searchUserByCustomerId(
 			@PathVariable("customerId") String customerId,
 			HttpServletRequest request, HttpServletResponse response) {
-
-		// TODO implement check for UserRole is admin
-		String token = request.getHeader("token");
 
 		Map<Integer, String> customerIdMap = userService
 				.searchUserByCustomerId(customerId);
@@ -194,8 +182,7 @@ public class UserController {
 	public void updateUserInfoById(@PathVariable("userId") Integer userId,
 			@RequestBody final ContactDto contactDto,
 			HttpServletRequest request, HttpServletResponse response) {
-		// TODO implement check for UserRole is admin
-		String token = request.getHeader("token");
+
 		userService.updateUserInfoByUserId(userId, contactDto);
 		return;
 	}

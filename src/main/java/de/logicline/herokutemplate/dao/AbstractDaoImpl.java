@@ -51,29 +51,6 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * de.logicline.parkingportal.dao.AbstractDao#findBySfid(java.lang.String)
-	 */
-	// @Override
-	// public T findBySfid(String id) {
-	// CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
-	// CriteriaQuery<T> cq = cb.createQuery(entityClass);
-	// Root<T> r = cq.from(entityClass);
-	// cq.select(r);
-	// cq.where(cb.equal(r.get("sfid"), id));
-	// List<T> resultList = getEntityManager().createQuery(cq).getResultList();
-	//
-	// T result = null;
-	// if (resultList != null && resultList.size() > 0) {
-	// result = resultList.get(0);
-	// }
-	//
-	// return result;
-	// }
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see de.logicline.parkingportal.dao.AbstractDao#remove(T)
 	 */
 	@Override
