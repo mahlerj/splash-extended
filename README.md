@@ -76,7 +76,7 @@ Example:
 - Response Data:
 		/!o8COfz8h
 
-### @Deprecated Get Contact Object (for current User)
+### DEPRECATED Get Contact Object (for current User)
 - Request: http://localhost:8080/logiclineportal/user/edit
 - Method Type: GET
 - Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
@@ -156,7 +156,7 @@ Example:
     "3": "5121-9992-02"
 } 
 
-### @Deprecated Update Contact Object (for current User)
+### DEPRECATED Update Contact Object (for current User)
 - Request: http://localhost:8080/logiclineportal/user/edit
 - Method Type: PUT
 - Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
