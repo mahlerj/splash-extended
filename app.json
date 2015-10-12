@@ -1,7 +1,7 @@
 {
   "name": "herokutemplate",
   "description": "create a deploy button on Heroku",
-  "repository":  "https://github.com/ca2so/ca-heroku.git"
+  "repository":  "https://github.com/ca2so/ca-heroku.git",
   "keywords": ["angularjs", "java", "heroku", "spring"],
   "addons": ["heroku-postgresql:hobby-dev"]
 }
