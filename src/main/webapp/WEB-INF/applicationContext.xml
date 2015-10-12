@@ -26,12 +26,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- setting maximum upload size -->
-		<property name="maxUploadSize" value="100000" />
-	</bean>
-
 	<bean id="reCaptcha" class="net.tanesha.recaptcha.ReCaptchaImpl">
 		<property name="privateKey" value="6LciewUTAAAAAEU8qfsCy4gcO1MxzMqFoezv1jDk" />
 	</bean>
