@@ -21,10 +21,9 @@ public interface UserService {
 
 	public void updateUserInfo(String token, ContactDto contactDto);
 
-	public void updateUserInfoByUserId(Integer userId,
-			ContactDto contactDto);
+	public void updateUserInfoByUserId(Integer userId, ContactDto contactDto);
 
-	public void updatePassword(Integer userId);
+	public String updatePassword(Integer userId);
 
 	public Map<Integer, String> getCustomerIdMap();
 

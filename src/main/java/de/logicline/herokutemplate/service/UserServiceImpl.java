@@ -45,10 +45,11 @@ public class UserServiceImpl implements UserService {
 		ue.setUsername(contactDto.getCustomerId());
 		String password = new PasswordGenerator().generatePswd(10, 10, 2, 2, 2);
 		ue.setPassword(password);
-		String token = DigestUtils.md5Hex(password
-				+ contactDto.getCustomerId());
+		String token = DigestUtils
+				.md5Hex(password + contactDto.getCustomerId());
 		ue.setToken(token);
 		ue.setRole(Enums.UserRole.ROLE_CUSTOMER.name());
+		// ue.setUserId(44);
 		userDao.create(ue);
 		contactDto.setUserIdFk(ue.getUserId());
 		contactDao.create(contactDto.toEntity(new ContactEntity()));
@@ -146,8 +147,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Transactional
-	public void updateUserInfoByUserId(Integer userId,
-			ContactDto contactDto) {
+	public void updateUserInfoByUserId(Integer userId, ContactDto contactDto) {
 		ContactEntity contactOld = getContactByUserId(userId);
 		if (contactOld.getUserIdFk().equals(contactDto.getUserIdFk())) {
 			ContactEntity contactUpdated = contactDto.toEntity(contactOld);
@@ -157,17 +157,17 @@ public class UserServiceImpl implements UserService {
 
 	public Map<Integer, String> searchUserByCustomerId(String customerId) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<ContactDto> cq = cb.createQuery(ContactDto.class);
-		Root<ContactDto> userInfo = cq.from(ContactDto.class);
+		CriteriaQuery<ContactEntity> cq = cb.createQuery(ContactEntity.class);
+		Root<ContactEntity> userInfo = cq.from(ContactEntity.class);
 		cq.select(userInfo);
 		cq.where(cb.like(userInfo.<String> get("customerId"), "%" + customerId
 				+ "%"));
-		List<ContactDto> resultList = em.createQuery(cq).getResultList();
+		List<ContactEntity> resultList = em.createQuery(cq).getResultList();
 
 		Map<Integer, String> customerIdMap = new HashMap<Integer, String>();
 
-		for (ContactDto uie : resultList) {
-			customerIdMap.put(uie.getUserIdFk(), uie.getCustomerId());
+		for (ContactEntity contact : resultList) {
+			customerIdMap.put(contact.getUserIdFk(), contact.getCustomerId());
 		}
 
 		return customerIdMap;
@@ -175,11 +175,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Transactional
-	public void updatePassword(Integer userId) {
+	public String updatePassword(Integer userId) {
 		String password = new PasswordGenerator().generatePswd(10, 10, 2, 2, 2);
 		UserEntity userForUpdate = em.find(UserEntity.class, userId);
 		userForUpdate.setPassword(password);
 		em.persist(userForUpdate);
+		return password;
+
 	}
 
 	/**

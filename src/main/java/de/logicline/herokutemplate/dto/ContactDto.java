@@ -169,9 +169,7 @@ public class ContactDto {
 
 	public ContactEntity toEntity(ContactEntity contactEntity) {
 
-		// not changeable
-		// contactEntity.setId(getUserInfoId());
-		// contactEntity.setSfid(getUserIdFk());
+		contactEntity.setUserIdFk(getUserIdFk());
 		contactEntity.setCustomerId(getCustomerId());
 		contactEntity.setEmail(getEmail());
 		contactEntity.setFirstName(getMainName());

@@ -98,19 +98,27 @@ public class UserController {
 		return responseMap;
 	}
 
-	@RequestMapping(value = "/user/edit/password/{userId}", method = RequestMethod.PUT)
-	public void updateUserPassword(@PathVariable("userId") Integer userId,
-			@RequestBody final Map<String, String> passwordMap,
+	@RequestMapping(value = "/user/create", method = RequestMethod.POST)
+	public @ResponseBody Integer createUserInfoById(
+			@RequestBody final ContactDto contactDto,
 			HttpServletRequest request, HttpServletResponse response) {
+
+		Integer userIdFk = userService.createUser(contactDto);
+
+		return userIdFk;
+	}
+
+	// TODO: change Request Method to POST
+	@RequestMapping(value = "/user/edit/password/{userId}", method = RequestMethod.PUT)
+	public @ResponseBody String updateUserPassword(
+			@PathVariable("userId") Integer userId, HttpServletRequest request,
+			HttpServletResponse response) {
 		// TODO implement check for UserRole is admin
 		String token = request.getHeader("token");
 
-		userService.updatePassword(userId);
+		String newPassword = userService.updatePassword(userId);
 
-		String oldPassword = passwordMap.get("oldPassword");
-		String newPassword = passwordMap.get("newPassword");
-
-		return;
+		return newPassword;
 	}
 
 	@Deprecated
@@ -147,34 +155,6 @@ public class UserController {
 		return contactEntity.toDto();
 	}
 
-	@RequestMapping(value = "/user/create", method = RequestMethod.POST)
-	public @ResponseBody void createUserInfoById(
-			@RequestBody final ContactDto contactDto,
-			HttpServletRequest request, HttpServletResponse response) {
-
-		Integer userIdFk = userService.createUser(contactDto);
-
-		return;
-	}
-
-	@RequestMapping(value = "/user/edit", method = RequestMethod.PUT)
-	public void updateUserInfo(@RequestBody final ContactDto contactDto,
-			HttpServletRequest request, HttpServletResponse response) {
-		String token = request.getHeader("token");
-		userService.updateUserInfo(token, contactDto);
-		return;
-	}
-
-	@RequestMapping(value = "/user/edit/{userId}", method = RequestMethod.PUT)
-	public void updateUserInfoById(@PathVariable("userId") Integer userId,
-			@RequestBody final ContactDto contactDto,
-			HttpServletRequest request, HttpServletResponse response) {
-		// TODO implement check for UserRole is admin
-		String token = request.getHeader("token");
-		userService.updateUserInfoByUserId(userId, contactDto);
-		return;
-	}
-
 	@RequestMapping(value = "/user/search", method = RequestMethod.GET)
 	public @ResponseBody Map<Integer, String> getAllCustomer(
 			HttpServletRequest request, HttpServletResponse response) {
@@ -199,6 +179,25 @@ public class UserController {
 				.searchUserByCustomerId(customerId);
 
 		return customerIdMap;
+	}
+
+	@Deprecated
+	@RequestMapping(value = "/user/edit", method = RequestMethod.PUT)
+	public void updateUserInfo(@RequestBody final ContactDto contactDto,
+			HttpServletRequest request, HttpServletResponse response) {
+		String token = request.getHeader("token");
+		userService.updateUserInfo(token, contactDto);
+		return;
+	}
+
+	@RequestMapping(value = "/user/edit/{userId}", method = RequestMethod.PUT)
+	public void updateUserInfoById(@PathVariable("userId") Integer userId,
+			@RequestBody final ContactDto contactDto,
+			HttpServletRequest request, HttpServletResponse response) {
+		// TODO implement check for UserRole is admin
+		String token = request.getHeader("token");
+		userService.updateUserInfoByUserId(userId, contactDto);
+		return;
 	}
 
 }
