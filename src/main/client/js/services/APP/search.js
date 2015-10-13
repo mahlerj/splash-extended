@@ -59,16 +59,16 @@ function(apiUserService) {
         }
     };
 
-    function setResultsList(dataOject) {
+    function setResultsList(dataObject) {
         resultsList = [];
-        for (var key in dataOject) {
-            if (!dataOject.hasOwnProperty(key)) {
+        for (var key in dataObject) {
+            if (!dataObject.hasOwnProperty(key)) {
                 continue;
             }
 
             resultsList.push({
                 userIdFk   : key,
-                customerId : dataOject[key]
+                customerId : dataObject[key]
             });
         }
     };
