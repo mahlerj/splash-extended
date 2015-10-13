@@ -10,7 +10,6 @@ angular
 
 function($rootScope, $scope, $filter, SearchService) {
 	$scope.customerId = null;
-	$scope.contractId = null;
 	$scope.searchResult = null;
 	$scope.resultsList = null;
 	$scope.filteredCustomers = [];
@@ -53,8 +52,7 @@ function($rootScope, $scope, $filter, SearchService) {
 	
 	$scope.searchData = function() {
 		
-		if((!angular.isString($scope.customerId) || $scope.customerId === '') && 
-			(!angular.isString($scope.contractId) || $scope.contractId === '')) {
+		if((!angular.isString($scope.customerId) || $scope.customerId === '')) {
 			SearchService.getAllCustomer().then(function(response) {
 				if (response.isError) {
 					return;
@@ -68,7 +66,7 @@ function($rootScope, $scope, $filter, SearchService) {
 			});
 		}
 		
-		SearchService.searchData($scope.customerId, $scope.contractId).then(function(response) {
+		SearchService.searchData($scope.customerId).then(function(response) {
 			if (response.isError) {
 				return;
 			}

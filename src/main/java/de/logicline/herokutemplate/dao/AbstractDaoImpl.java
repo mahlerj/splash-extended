@@ -28,7 +28,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.logicline.parkingportal.dao.AbstractDao#findAll()
+	 * @see de.logicline.herokutemplate.dao.AbstractDao#findAll()
 	 */
 	@Override
 	public List<T> findAll() {
@@ -41,7 +41,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.logicline.parkingportal.dao.AbstractDao#find(java.lang.Object)
+	 * @see de.logicline.herokutemplate.dao.AbstractDao#find(java.lang.Object)
 	 */
 	@Override
 	public T find(Object id) {
@@ -51,7 +51,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.logicline.parkingportal.dao.AbstractDao#remove(T)
+	 * @see de.logicline.herokutemplate.dao.AbstractDao#remove(T)
 	 */
 	@Override
 	public void remove(T entity) {
@@ -61,7 +61,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.logicline.parkingportal.dao.AbstractDao#remove(T)
+	 * @see de.logicline.herokutemplate.dao.AbstractDao#remove(T)
 	 */
 
 	public void remove(List<T> entityList) {
@@ -74,7 +74,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.logicline.parkingportal.dao.AbstractDao#edit(T)
+	 * @see de.logicline.herokutemplate.dao.AbstractDao#edit(T)
 	 */
 
 	public T edit(T entity) {
@@ -84,7 +84,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.logicline.parkingportal.dao.AbstractDao#create(T)
+	 * @see de.logicline.herokutemplate.dao.AbstractDao#create(T)
 	 */
 	@Override
 	public void create(T entity) {
@@ -102,7 +102,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.logicline.parkingportal.dao.AbstractDao#getEntityManager()
+	 * @see de.logicline.herokutemplate.dao.AbstractDao#getEntityManager()
 	 */
 	@Override
 	public EntityManager getEntityManager() {
@@ -113,7 +113,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * de.logicline.parkingportal.dao.AbstractDao#setEntityManager(javax.persistence
+	 * de.logicline.herokutemplate.dao.AbstractDao#setEntityManager(javax.persistence
 	 * .EntityManager)
 	 */
 	@Override

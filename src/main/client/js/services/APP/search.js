@@ -2,9 +2,8 @@
 
 angular.module('logicline.services').factory('SearchService', [
     'apiUserService',
-    'apiContractService',
 
-function(apiUserService, apiContractService) {
+function(apiUserService) {
     var searchResult = {},
         resultsList = [];
     
@@ -22,7 +21,7 @@ function(apiUserService, apiContractService) {
         });*/
     };
 
-     function searchData(customerId, contractId) {
+     function searchData(customerId) {
         return apiUserService.getSearchedListByCustomerId(customerId).then(function(response) {
             if (response.isError) {
                 return response;
@@ -53,7 +52,6 @@ function(apiUserService, apiContractService) {
         for (var i = 0; i < resultsList.length; i++) {
              if (resultsList[i].userIdFk === resultId) {
                 searchResult = {
-                    contractInfo: {},
                     customerInfo: resultsList[i]
                 }
                 return searchResult;

@@ -50,7 +50,6 @@ angular.module('logicline')
   $translatePartialLoaderProvider.addPart('navigation');
   $translatePartialLoaderProvider.addPart('login');
   $translatePartialLoaderProvider.addPart('dashboard');
-  $translatePartialLoaderProvider.addPart('vrm');
   $translatePartialLoaderProvider.addPart('user');
 
   $translateProvider.useLoader('$translatePartialLoader', {

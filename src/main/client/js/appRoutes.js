@@ -86,50 +86,6 @@ angular.module('logicline')
           permissionType: 'AtLeastOne'
       }
     })
-    /* Contract */
-    .state('contract_list', {
-      url          : '/contract/list',
-      templateUrl  : 'templates/contract/list.html',
-      controller   : 'ContractCtrl',
-      access: {
-          requiresLogin: true,
-          requiredPermissions: ['Admin', 'CSC Admin', 'User'],
-          permissionType: 'AtLeastOne'
-      }
-    })
-    /* Contract */
-    .state('contract_list_admin', {
-      url          : '/contract/list/:userId',
-      templateUrl  : 'templates/contract/list.html',
-      controller   : 'ContractCtrl',
-      access: {
-          requiresLogin: true,
-          requiredPermissions: ['Admin', 'CSC Admin', 'User'],
-          permissionType: 'AtLeastOne'
-      }
-    })
-    /* VRM */
-    .state('vrm_edit', {
-      url          : '/vrm/edit/:contractInfoId',
-      templateUrl  : 'templates/vrm/edit.html',
-      controller   : 'VRMCtrl',
-      access: {
-          requiresLogin: true,
-          requiredPermissions: ['Admin', 'CSC Admin', 'User'],
-          permissionType: 'AtLeastOne'
-      }
-    })
-    /* VRM */
-    .state('vrm_edit_admin', {
-      url          : '/vrm/edit/:contractInfoId',
-      templateUrl  : 'templates/vrm/edit.html',
-      controller   : 'VRMCtrl',
-      access: {
-          requiresLogin: true,
-          requiredPermissions: ['Admin', 'CSC Admin', 'User'],
-          permissionType: 'AtLeastOne'
-      }
-    })
     /* Fallback */
     .state('otherwise', {
       url: '/system/login',

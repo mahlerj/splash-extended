@@ -12,8 +12,7 @@ function($state, $scope, $rootScope, $upload, apiUserService) {
   var CustomerService = (function() {
       function customerCreate() {
         $scope.userInformation = {
-          userInfoEntity: {},
-          contractInfoEntity: {}
+          userInfoEntity: {}
         };
 
         $scope.createUser = function(isValid, userInformation) {
