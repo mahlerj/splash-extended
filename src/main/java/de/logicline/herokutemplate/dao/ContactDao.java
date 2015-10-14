@@ -8,6 +8,6 @@ public interface ContactDao extends AbstractDao<ContactEntity> {
 
 	public ContactEntity getContactByUserId(Integer userId);
 
-	public List<ContactEntity> findByCustomerId(String id);
+	public List<ContactEntity> findByName(String name);
 
 }

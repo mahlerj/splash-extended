@@ -99,17 +99,16 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user/create", method = RequestMethod.POST)
-	public @ResponseBody Integer createUserInfoById(
+	public @ResponseBody String createUserInfoById(
 			@RequestBody final ContactDto contactDto,
 			HttpServletRequest request, HttpServletResponse response) {
 
-		Integer userIdFk = userService.createUser(contactDto);
+		String password = userService.createUser(contactDto);
 
-		return userIdFk;
+		return password;
 	}
 
-	// TODO: change Request Method to POST
-	@RequestMapping(value = "/user/edit/password/{userId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/user/edit/password/{userId}", method = RequestMethod.POST)
 	public @ResponseBody String updateUserPassword(
 			@PathVariable("userId") Integer userId, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -117,22 +116,6 @@ public class UserController {
 		String newPassword = userService.updatePassword(userId);
 
 		return newPassword;
-	}
-
-	@Deprecated
-	@RequestMapping(value = "/user/edit", method = RequestMethod.GET)
-	public @ResponseBody ContactDto getContact(HttpServletRequest request,
-			HttpServletResponse response) {
-
-		String token = request.getHeader("token");
-		ContactEntity contactEntity = userService.getContact(token);
-		if (contactEntity == null) {
-			response.setStatus(HttpServletResponse.SC_NO_CONTENT);
-			return null;
-		}
-
-		return contactEntity.toDto();
-
 	}
 
 	@RequestMapping(value = "/user/edit/{userId}", method = RequestMethod.GET)
@@ -158,24 +141,14 @@ public class UserController {
 		return customerIdMap;
 	}
 
-	@RequestMapping(value = "/user/search/{customerId}", method = RequestMethod.GET)
-	public @ResponseBody Map<Integer, String> searchUserByCustomerId(
-			@PathVariable("customerId") String customerId,
-			HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/user/search/{name}", method = RequestMethod.GET)
+	public @ResponseBody Map<Integer, String> searchUserByName(
+			@PathVariable("name") String name, HttpServletRequest request,
+			HttpServletResponse response) {
 
-		Map<Integer, String> customerIdMap = userService
-				.searchUserByCustomerId(customerId);
+		Map<Integer, String> nameMap = userService.searchUserByName(name);
 
-		return customerIdMap;
-	}
-
-	@Deprecated
-	@RequestMapping(value = "/user/edit", method = RequestMethod.PUT)
-	public void updateUserInfo(@RequestBody final ContactDto contactDto,
-			HttpServletRequest request, HttpServletResponse response) {
-		String token = request.getHeader("token");
-		userService.updateUserInfo(token, contactDto);
-		return;
+		return nameMap;
 	}
 
 	@RequestMapping(value = "/user/edit/{userId}", method = RequestMethod.PUT)

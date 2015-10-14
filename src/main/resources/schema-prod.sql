@@ -15,11 +15,9 @@ CREATE TABLE ContactEntity
 (
 	id SERIAL PRIMARY KEY,
     userIdFk INTEGER,
-	customerId character varying(40),
 	email character varying(80),
   	firstname character varying(40),
   	lastname character varying(80),
-  	name character varying(121),
   	mailingcity character varying(40),
   	mailingcountry character varying(80),
   	mailingpostalcode character varying(20),

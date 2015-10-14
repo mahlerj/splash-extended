@@ -15,7 +15,6 @@ public class ContactEntity {
 
 	private Integer userIdFk;
 
-	private String customerId;
 	private String email;
 	private String firstName;
 	private String lastName;
@@ -39,14 +38,6 @@ public class ContactEntity {
 
 	public void setUserIdFk(Integer userIdFk) {
 		this.userIdFk = userIdFk;
-	}
-
-	public String getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
 	}
 
 	public String getEmail() {
@@ -114,18 +105,16 @@ public class ContactEntity {
 	}
 
 	public ContactDto toDto() {
+
 		ContactDto result = new ContactDto();
-		result.setUserInfoId(getId());
-		result.setUserIdFk(getUserIdFk());
-		result.setCompany("nothing");
-		result.setCustomerId(getCustomerId());
 		result.setEmail(getEmail());
-		result.setMainCity(getMailingCity());
 		result.setMainName(getFirstName());
 		result.setMainSurname(getLastName());
-		result.setMainPoPox("");
-		result.setMainStreet(getMailingStreet());
+		result.setMainCity(getMailingCity());
+		result.setMainCountry(getMailingCountry());
 		result.setMainZipcode(getMailingPostalCode());
+		result.setMainStreet(getMailingStreet());
+		result.setMainPhone(getPhone());
 
 		return result;
 	}
