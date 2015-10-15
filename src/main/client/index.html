@@ -74,11 +74,8 @@
     <!-- End: Navigation -->
     <!-- Start: ui-view -->
     <div ui-view class="content"></div>
-    <!-- End: ui-view -->
-    <footer class="footer footer-user text--center" ng-if="User.isCustomer">
-        <div ng-include="'templates/_footer.html'"></div>
-    </footer>
-    <footer class="footer text--center" ng-if="!User || !User.isCustomer">
+    <!-- End: ui-view -->   
+    <footer class="footer text--center">
     	<div ng-include="'templates/_footer.html'"></div>
     </footer>
   </body>

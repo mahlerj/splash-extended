@@ -79,9 +79,9 @@ function(Restangular, apiBaseResponses) {
                 .get()
                 .then(apiBaseResponses.onSuccess, apiBaseResponses.onError);
     },
-    getSearchedListByCustomerId: function(customerId) {
+    getSearchedListByName: function(name) {
       return Restangular
-              .one('user/search', customerId)
+              .one('user/search', name)
               .get()
               .then(apiBaseResponses.onSuccess, apiBaseResponses.onError);
     }

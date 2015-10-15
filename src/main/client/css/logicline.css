@@ -105,7 +105,7 @@ body, .btn, h2, .h2, h3, .h3, h4, .h4 { font-family: Arial, Helvetica, sans-seri
 /** Global styling of elements */
 /*------------------------------------*\ $BODY
 \*------------------------------------*/
-body { background: url("/img/background/bg.jpg") top center fixed no-repeat; font-size: 1.125em; line-height: 1.5; height: 100%; color: #000000; }
+body { background: url("../img/background/bg.jpg") top center fixed no-repeat; font-size: 1.125em; line-height: 1.5; height: 100%; color: #000000; }
 
 /*------------------------------------*\ $BUTTONS
 \*------------------------------------*/
@@ -265,7 +265,7 @@ select { width: 100%; }
 .column, .columns { padding-left: 0.9375em; padding-right: 0.9375em; width: 100%; float: left; }
 
 
-[class*="column"] + [class*="column"]:last-child { float: right; margin-right: 0; }
+[class*="column"] + [class*="column"]:last-child { margin-right: 0; float: right;}
 
 [class*="column"] + [class*="column"].end { float: left; }
 
@@ -792,19 +792,19 @@ th.hide-for-touch { display: table-cell !important; }
 
 .header__username { font-size: 12px; color: #909090; }
 
-.csc--header .header__username { font-size: 12px; color: #ffffff; }
+.csc--header .header__username { font-size: 12px;}
 
 .header__username__name { background: url(../img/icons/system-links-separator.png) right center no-repeat; padding: 0 9px 0 0; }
 
 .header__username__logout { padding: 0 0 0 4px; }
 
+.header__language-switch { float: right; }
+
 .header__language-switch img { position: relative; top: 3px; }
 
 /*------------------------------------*\ $FOOTER
 \*------------------------------------*/
-.footer { height: 50px; padding: 20px 1% 20px 1%; background-color: #ffffff; }
-
-.footer-user { background-color: #06395B; color: #ffffff; }
+.footer { height: 50px; background-color: #ffffff; }
 
 /*------------------------------------*\ $HEADER
 \*------------------------------------*/
@@ -820,9 +820,9 @@ th.hide-for-touch { display: table-cell !important; }
 \*------------------------------------*/
 nav { float: left; width: 100%; }
 
-nav ul { margin: 0; padding: 0; width: 100%; background: #808080; list-style-type: none; float: left; }
+nav ul { margin: 0; padding: 0; width: 100%; background: #717171; list-style-type: none; float: left; }
 
-nav ul li { display: inline-block; padding: 17px 2.1% 14px 2.1%; border-right: 1px solid #808080; color: #ffffff; text-transform: uppercase; font-family: Arial; font-size: 14px; float: left; }
+nav ul li { display: inline-block; padding: 17px 2.1% 14px 2.1%; border-right: 1px solid #717171; color: #ffffff; text-transform: uppercase; font-family: Arial; font-size: 14px; float: left; }
 
 nav ul li.active { background: #e5e5e5; color: #5e5e5e; }
 
@@ -859,7 +859,9 @@ nav ul li.active { background: #e5e5e5; color: #5e5e5e; }
 .box { padding: 18px 3% 18px 3%; margin-right: 47px; }
 
 .box--cerulean { background: #e5e5e5; border-radius: 5px;
-    border-top: 2px solid #e10707;}
+    border-top: 2px solid #e10707; margin-bottom: 20px;}
+    
+.box--cerulean:last-child {float: left !important;}
 
 .box--cerulean:hover, .box--cerulean:focus {color: #e10707; }
 

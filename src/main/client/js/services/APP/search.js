@@ -21,8 +21,8 @@ function(apiUserService) {
         });*/
     };
 
-     function searchData(customerId) {
-        return apiUserService.getSearchedListByCustomerId(customerId).then(function(response) {
+     function searchData(name) {
+        return apiUserService.getSearchedListByName(name).then(function(response) {
             if (response.isError) {
                 return response;
             }
@@ -68,7 +68,7 @@ function(apiUserService) {
 
             resultsList.push({
                 userIdFk   : key,
-                customerId : dataObject[key]
+                lastName : dataObject[key]
             });
         }
     };

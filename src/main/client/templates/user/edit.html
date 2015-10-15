@@ -24,24 +24,6 @@
       </div>
     </div>
     <div class="row">
-      <div class="small-12 columns" access="Admin,CSC Admin" access-is-rendered="FALSE">
-        <input type="text" name="customerId" placeholder="{{ 'USER_EDIT_FORM_CUSTOMER_ID' | translate }}" class="small-12 medium-5 columns input" ng-required="!User.isCSCUser" ng-model="userInformation.customerId" ng-class="{ 'has--error': userEditForm.$submitted && (userEditForm.customerId.$error.required || userEditForm.customerId.$invalid) }" />
-        <input type="text" name="personalId" placeholder="{{ 'USER_EDIT_FORM_PERSONAL_ID' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-required="!User.isCSCUser" ng-model="userInformation.identityNr" ng-class="{ 'has--error': userEditForm.$submitted && (userEditForm.personalId.$error.required || userEditForm.personalId.$invalid) }" />
-      </div>
-      <div class="small-12 columns" access="USER" access-is-rendered="FALSE">
-        <span name="customerIdU" class="small-12 medium-5 columns input input-gray">{{userInformation.customerId || ('USER_EDIT_FORM_CUSTOMER_ID' | translate)}}</span>
-        <span name="personalIdU" class="small-12 medium-5 medium-pull-1 columns input input-gray">{{userInformation.identityNr || ('USER_EDIT_FORM_PERSONAL_ID' | translate)}}</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-12 columns" access="Admin,CSC Admin" access-is-rendered="FALSE">
-        <input type="text" name="company" placeholder="{{ 'USER_EDIT_FORM_COMPANY' | translate }}" class="small-12 medium-5 columns input" ng-model="userInformation.company"/>
-      </div>
-      <div class="small-12 columns" access="USER" access-is-rendered="FALSE">
-        <span name="company" class="small-12 medium-5 columns input input-gray">{{userInformation.company || ('USER_EDIT_FORM_COMPANY' | translate)}}</span>
-      </div>
-    </div>
-    <div class="row">
       <div class="small-12 columns">
         <input type="text" name="mainName" placeholder="{{ 'USER_EDIT_FORM_FIRSTNAME' | translate }}" class="small-12 medium-5 columns input" required ng-model="userInformation.mainName" ng-class="{ 'has--error': userEditForm.$submitted && (userEditForm.mainName.$error.required || userEditForm.mainName.$invalid) }" />
         <input type="text" name="mainSurname" placeholder="{{ 'USER_EDIT_FORM_LASTNAME' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" required ng-model="userInformation.mainSurname" ng-class="{ 'has--error': userEditForm.$submitted && (userEditForm.mainSurname.$error.required || userEditForm.mainSurname.$invalid) }" />
@@ -50,7 +32,7 @@
     <div class="row">
       <div class="small-12 columns">
         <input type="text" name="mainStreet" placeholder="{{ 'USER_EDIT_FORM_STREET' | translate }}" class="small-12 medium-5 columns input" ng-model="userInformation.mainStreet" />
-        <input type="text" name="mainPoPox" placeholder="{{ 'USER_EDIT_FORM_PO_BOX' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-model="userInformation.mainPoPox" />
+        <input type="text" name="mainCountry" placeholder="{{ 'USER_EDIT_FORM_COUNTRY' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-model="userInformation.mainCountry" />
       </div>
     </div>
     <div class="row">
@@ -65,15 +47,16 @@
         <input type="text" name="phone" placeholder="{{ 'USER_EDIT_FORM_PHONE' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-model="userInformation.contactPersNr" />
       </div>
     </div>
-
-    <div class="row headline--border spacing--top--20" access="Admin" access-is-rendered="FALSE" style="padding-top:10px;" ng-if="isOwnData">
+    
+     <div class="row headline--border spacing--top--20" access="Admin" access-is-rendered="FALSE" style="padding-top:10px;">
       <div class="small-12 columns">
         <p class="content--text">
           <span>{{'USER_EDIT_PS_RESET'| translate}}</span>
-          <span class="input-reset display--inline cursor--pointer" ng-click="resetPassowrd(userInformation.userIdFk);"></span>
+          <span class="input-reset display--inline cursor--pointer" ng-click="resetPassword(userInformation.userIdFk);"></span>
         </p>
         <p class="content--text" ng-show="isReseted">
           <span class="help--success">&nbsp;&nbsp;&nbsp;&nbsp;{{'USER_EDIT_PS_SUCCESS' | translate}}</span>
+          <span> {userInformation.password } </span>
         </p>
       </div>
     </div>
