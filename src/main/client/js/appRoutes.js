@@ -21,7 +21,7 @@ angular.module('logicline')
     })
     /* User */
     .state('user_edit', {
-      url          : '/user/edit',
+      url          : '/user/edit/:userId',
       templateUrl  : 'templates/user/edit.html',
       controller   : 'UserCtrl',
       access: {

@@ -25,21 +25,7 @@ function(Restangular, apiBaseResponses) {
     passwordReset: function(userId) {
       return Restangular
               .one('user/edit/password', userId)
-              .customPUT({})
-              .then(apiBaseResponses.onSuccess, apiBaseResponses.onError);
-    },
-    passwordVerify: function(userId) {
-      return Restangular
-              .one('user/edit/password', userId)
-              //.put({"oldPassword":"1234","newPassword":"5678"})
-              .customPUT(credentials)
-              .then(apiBaseResponses.onSuccess, apiBaseResponses.onError);
-    },
-    passwordNew: function(credentials, userId) {
-      return Restangular
-              .one('user/edit/password', userId)
-              //.put({newPassword":"5678"})
-              .customPUT(credentials)
+              .customPOST()
               .then(apiBaseResponses.onSuccess, apiBaseResponses.onError);
     },
     getInformation: function(userId) {
@@ -57,7 +43,7 @@ function(Restangular, apiBaseResponses) {
     },
     putInformation: function(userInformation) {
       return Restangular
-              .one('user/edit', userInformation.userIdFk)
+              .one('user/edit', userInformation.userId)
               .customPUT(userInformation)
               .then(apiBaseResponses.onSuccess, apiBaseResponses.onError);
     },
