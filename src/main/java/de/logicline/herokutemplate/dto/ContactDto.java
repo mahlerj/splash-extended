@@ -4,6 +4,7 @@ import de.logicline.herokutemplate.model.ContactEntity;
 
 public class ContactDto {
 
+	private Integer userIdFk;
 	private String email;
 	private String mainName;
 	private String mainSurname;
@@ -12,6 +13,14 @@ public class ContactDto {
 	private String mainZipcode;
 	private String mainStreet;
 	private String mainPhone;
+
+	public Integer getUserIdFk() {
+		return userIdFk;
+	}
+
+	public void setUserIdFk(Integer userIdFk) {
+		this.userIdFk = userIdFk;
+	}
 
 	public String getEmail() {
 		return email;

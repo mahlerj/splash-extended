@@ -107,6 +107,7 @@ public class ContactEntity {
 	public ContactDto toDto() {
 
 		ContactDto result = new ContactDto();
+		result.setUserIdFk(getUserIdFk());
 		result.setEmail(getEmail());
 		result.setMainName(getFirstName());
 		result.setMainSurname(getLastName());
