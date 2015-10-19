@@ -10,7 +10,7 @@
         <span ng-show="!isResultChosen">{{ 'USER_SEARCH_HEADLINE' | translate}}</span>
         <span ng-show="isResultChosen">{{'USER_SEARCH_EDIT_HEADLINE' | translate}}</span>
         <p class="content--text" ng-show="isResultChosen">
-          <span ng-show="searchResult.customerInfo.customerId">Customer ({{ searchResult.customerInfo.customerId }})</span>
+          <span ng-show="searchResult.customerInfo.lastName">Customer ({{ searchResult.customerInfo.lastName }})</span>
         </p>
       </h3>
       <span class="help--error" ng-show="resultsList && resultsList.length === 0">{{'USER_SEARCH_ERROR' | translate}}</span>
@@ -25,7 +25,7 @@
 				<form class="flexsearch--form" ng-submit="searchData();">
 					<div class="flexsearch--input-wrapper">
 						<input class="flexsearch--input" type="search"
-						placeholder="search" data-ng-model="customerId" data-ng-change="filterCustomers()"
+						placeholder="search" data-ng-model="lastName" data-ng-change="filterCustomers()"
 						class="novalidate form-control">
 					</div>
 					<input class="flexsearch--submit" type="submit" value="&#10140;" />
@@ -36,8 +36,8 @@
       <div class="small-12 columns">
         <!-- Start: Customer list -->
           <ul class="small-12 columns list">
-            <li class="list__item cursor--pointer" ng-repeat="res in filteredCustomers | orderBy:'customerId'" ng-click="chooseResult(res.userIdFk);">
-              {{ res.customerId }}
+            <li class="list__item cursor--pointer" ng-repeat="res in filteredCustomers | orderBy:'lastName'" ng-click="chooseResult(res.userIdFk);">
+              {{ res.lastName }}
             </li>
           </ul>
         <!-- End: Customer list -->

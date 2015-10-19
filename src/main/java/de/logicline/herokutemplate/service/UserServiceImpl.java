@@ -36,22 +36,21 @@ public class UserServiceImpl implements UserService {
 	ContactDao contactDao;
 
 	@Transactional
-	public Integer createUser(ContactDto contactDto) {
+	public String createUser(ContactDto contactDto) {
 
 		UserEntity ue = new UserEntity();
-		ue.setUsername(contactDto.getCustomerId());
+		ue.setUsername(contactDto.getMainSurname());
 		String password = new PasswordGenerator().generatePswd(10, 10, 2, 2, 2);
 		ue.setPassword(password);
-		String token = DigestUtils
-				.md5Hex(password + contactDto.getCustomerId());
+		String token = DigestUtils.md5Hex(password
+				+ contactDto.getMainSurname());
 		ue.setToken(token);
 		ue.setRole(Enums.UserRole.ROLE_CUSTOMER.name());
 		userDao.create(ue);
-		contactDto.setUserIdFk(ue.getUserId());
 		ContactEntity ce = contactDto.toEntity(new ContactEntity());
 		ce.setUserIdFk(ue.getUserId());
-
-		return ue.getUserId();
+		contactDao.create(ce);
+		return password;
 	};
 
 	public UserEntity getUserByNameAndPassword(String username, String password) {
@@ -71,30 +70,19 @@ public class UserServiceImpl implements UserService {
 		Map<Integer, String> customerIdMap = new HashMap<Integer, String>();
 
 		for (ContactEntity uie : resultList) {
-			customerIdMap.put(uie.getUserIdFk(), uie.getCustomerId());
+			customerIdMap.put(uie.getUserIdFk(), uie.getLastName());
 		}
 
 		return customerIdMap;
 
 	}
 
-	@Deprecated
 	public ContactEntity getContact(String token) {
 
 		Integer userId = userDao.getUserId(token);
 		ContactEntity result = contactDao.getContactByUserId(userId);
 
 		return result;
-	}
-
-	@Deprecated
-	@Transactional
-	public void updateUserInfo(String token, ContactDto contactDto) {
-		ContactEntity contactOld = getContact(token);
-		if (contactOld.getUserIdFk().equals(contactDto.getUserIdFk())) {
-			ContactEntity contactUpdated = contactDto.toEntity(contactOld);
-			contactDao.edit(contactUpdated);
-		}
 	}
 
 	public ContactEntity getContactByUserId(Integer userId) {
@@ -106,21 +94,20 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public void updateUserInfoByUserId(Integer userId, ContactDto contactDto) {
 		ContactEntity contactOld = contactDao.getContactByUserId(userId);
-		if (contactOld.getUserIdFk().equals(contactDto.getUserIdFk())) {
-			ContactEntity contactUpdated = contactDto.toEntity(contactOld);
-			contactDao.edit(contactUpdated);
-		}
+
+		ContactEntity contactUpdated = contactDto.toEntity(contactOld);
+		contactDao.edit(contactUpdated);
+
 	}
 
-	public Map<Integer, String> searchUserByCustomerId(String customerId) {
+	public Map<Integer, String> searchUserByName(String name) {
 
-		List<ContactEntity> resultList = contactDao
-				.findByCustomerId(customerId);
+		List<ContactEntity> resultList = contactDao.findByName(name);
 
 		Map<Integer, String> customerIdMap = new HashMap<Integer, String>();
 
 		for (ContactEntity contact : resultList) {
-			customerIdMap.put(contact.getUserIdFk(), contact.getCustomerId());
+			customerIdMap.put(contact.getUserIdFk(), contact.getLastName());
 		}
 
 		return customerIdMap;

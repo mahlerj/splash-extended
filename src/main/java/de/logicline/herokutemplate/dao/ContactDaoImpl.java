@@ -35,13 +35,13 @@ public class ContactDaoImpl extends AbstractDaoImpl<ContactEntity> implements
 		return result;
 	}
 
-	public List<ContactEntity> findByCustomerId(String id) {
+	public List<ContactEntity> findByName(String name) {
 
 		CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
 		CriteriaQuery<ContactEntity> cq = cb.createQuery(ContactEntity.class);
 		Root<ContactEntity> userInfo = cq.from(ContactEntity.class);
 		cq.select(userInfo);
-		cq.where(cb.like(userInfo.<String> get("customeridC"), "%" + id + "%"));
+		cq.where(cb.like(userInfo.<String> get("lastName"), "%" + name + "%"));
 		List<ContactEntity> result = getEntityManager().createQuery(cq)
 				.getResultList();
 		return result;

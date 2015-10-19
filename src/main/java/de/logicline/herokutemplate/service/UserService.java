@@ -11,7 +11,7 @@ public interface UserService {
 
 	public UserEntity getUserByNameAndPassword(String username, String password);
 
-	public Integer createUser(ContactDto contactDto);
+	public String createUser(ContactDto contactDto);
 
 	public List<ContactEntity> getContactList();
 
@@ -19,14 +19,12 @@ public interface UserService {
 
 	public ContactEntity getContactByUserId(Integer userId);
 
-	public void updateUserInfo(String token, ContactDto contactDto);
-
 	public void updateUserInfoByUserId(Integer userId, ContactDto contactDto);
 
 	public String updatePassword(Integer userId);
 
 	public Map<Integer, String> getCustomerIdMap();
 
-	public Map<Integer, String> searchUserByCustomerId(String customerId);
+	public Map<Integer, String> searchUserByName(String name);
 
 }

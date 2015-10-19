@@ -12,8 +12,7 @@ angular.module('logicline.filters', []).filter('customerFilter', function() {
             filterValue = filterValue.toLowerCase();
             for (var i = 0; i < customers.length; i++) {
                 var cust = customers[i];
-                if (cust.customerId.toLowerCase().indexOf(filterValue) > -1) {
-
+                if (cust.lastName.toLowerCase().indexOf(filterValue) > -1 ) {
                     matches.push(cust);
                 }
             }

@@ -9,7 +9,7 @@ angular
 'SearchService',
 
 function($rootScope, $scope, $filter, SearchService) {
-	$scope.customerId = null;
+	$scope.lastName = null;
 	$scope.searchResult = null;
 	$scope.resultsList = null;
 	$scope.filteredCustomers = [];
@@ -32,7 +32,7 @@ function($rootScope, $scope, $filter, SearchService) {
 		});
     })();
 	
-	if ($scope.$state.current.name !== 'customer_search') {
+	if ($scope.$state.current.lastName !== 'customer_search') {
 		$scope.resultsList = SearchService.getResultsList();
 		$scope.searchResult = SearchService.getResult();
 		if ($scope.resultsList.length > 0) {
@@ -46,13 +46,13 @@ function($rootScope, $scope, $filter, SearchService) {
 	}
 	
 	$scope.filterCustomers = function () {
-        $scope.filteredCustomers = $filter("customerFilter")($scope.resultsList, $scope.customerId);
+        $scope.filteredCustomers = $filter("customerFilter")($scope.resultsList, $scope.lastName);
 		$scope.filteredCount = $scope.filteredCustomers.length;
     };
 	
 	$scope.searchData = function() {
 		
-		if((!angular.isString($scope.customerId) || $scope.customerId === '')) {
+		if((!angular.isString($scope.lastName) || $scope.lastName === '')) {
 			SearchService.getAllCustomer().then(function(response) {
 				if (response.isError) {
 					return;
@@ -66,11 +66,11 @@ function($rootScope, $scope, $filter, SearchService) {
 			});
 		}
 		
-		SearchService.searchData($scope.customerId).then(function(response) {
+		SearchService.searchData($scope.lastName).then(function(response) {
 			if (response.isError) {
 				return;
 			}
-			$scope.resultsList = [];
+			$scope.resultsList = [];lastName
 
 			if (!!response.length) {
 				$scope.isResultList = true;

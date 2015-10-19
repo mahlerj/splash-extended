@@ -21,7 +21,7 @@ angular.module('logicline')
     })
     /* User */
     .state('user_edit', {
-      url          : '/user/edit',
+      url          : '/user/edit/:userId',
       templateUrl  : 'templates/user/edit.html',
       controller   : 'UserCtrl',
       access: {
@@ -68,17 +68,6 @@ angular.module('logicline')
     .state('customer_create', {
       url          : '/customer/create',
       templateUrl  : 'templates/customer/create.html',
-      controller   : 'CustomerCtrl',
-      access: {
-          requiresLogin: true,
-          requiredPermissions: ['Admin', 'CSC Admin'],
-          permissionType: 'AtLeastOne'
-      }
-    })
-    /* customer upload */
-    .state('customer_upload', {
-      url          : '/customer/upload',
-      templateUrl  : 'templates/customer/upload.html',
       controller   : 'CustomerCtrl',
       access: {
           requiresLogin: true,

@@ -2,13 +2,14 @@
 
 angular.module('logicline.controllers')
 .controller('LoginCtrl', [
+'$rootScope',
 '$scope',
 '$window',
 'localStorageService',
 'appAuthenticationService',
 'appAuthorizationService',
 
-function($scope, $window, localStorageService, appAuthenticationService, appAuthorizationService) {
+function($rootScope, $scope, $window, localStorageService, appAuthenticationService, appAuthorizationService) {
   var captcha = {
     publicKey    : '6LciewUTAAAAACjcP9xWUXYeuPi4REa6KpohnPMN',
     isStarted    : false,
@@ -59,7 +60,9 @@ function($scope, $window, localStorageService, appAuthenticationService, appAuth
 
     appAuthenticationService.login(getCredentials(credentials)).then(function(User) {
       if (!User.isError) {
-        if (!User.isCSCUser) {
+    	$rootScope.userIdFk = User.userId;
+    	console.log($rootScope.userIdFk);
+        if (!User.isCSCUser) {        
           $scope.$state.go('dashboard');
         } else {
           $scope.$state.go('customer_search');

@@ -28,7 +28,7 @@
     </li>
      -->
     <li class="small-12 large-3 text--left columns cursor--pointer" access="User,Admin,CSC Admin" access-permission-type="AtLeastOne" access-is-rendered="FALSE" ng-if="!isSearchActive"
-      ng-class="{ 'active': $state.includes('user_edit') || $state.includes('customer_edit')}" ng-click="goTo('user_edit');">
+      ng-class="{ 'active': $state.includes('user_edit') || $state.includes('customer_edit')}" ng-click="goTo('user_edit', {userId: userIdFk});">
       {{ 'NAVIGATION_PERSONAL_DATA' | translate }}
     </li>
     <li class="hidden"></li>
