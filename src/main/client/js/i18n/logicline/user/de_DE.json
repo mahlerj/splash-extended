@@ -15,7 +15,7 @@
   "USER_SEARCH_EDIT_SUBHEADLINE2" : "Hier können Sie die Kundendaten bearbeiten.",
   "USER_EDIT_SAVE_SUCCESS"        : "Ihre Änderungen wurden erfolgreich gespeichert.",
   "USER_EDIT_PS_RESET"            : "Neues Passwort erstellen.",
-  "USER_EDIT_PS_SUCCESS"          : "Ihr Passwort wurde erfolgreich zurückgesetzt und wird auf der nächsten Rechnung erscheinen.",
+  "USER_EDIT_PS_SUCCESS"          : "Ihr Passwort wurde erfolgreich zurückgesetzt und in die DB eingetragen",
 
   "USER_EDIT_FORM_FIRSTNAME"      : "Vorname *",
   "USER_EDIT_FORM_LASTNAME"       : "Name *",

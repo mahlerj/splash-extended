@@ -51,11 +51,12 @@
      <div class="row headline--border spacing--top--20" access="Admin" access-is-rendered="FALSE" style="padding-top:10px;">
       <div class="small-12 columns">
         <p class="content--text">
+     
           <span>{{'USER_EDIT_PS_RESET'| translate}}</span>
           <span class="input-reset display--inline cursor--pointer" ng-click="resetPassword(userInformation.userIdFk);"></span>
         </p>
         <p class="content--text" ng-show="isReseted">
-          <span class="help--success">&nbsp;&nbsp;&nbsp;&nbsp;{{'USER_EDIT_PS_SUCCESS' | translate}}</span>
+          <span class="help--success"> &nbsp;&nbsp;&nbsp;&nbsp;{{'USER_EDIT_PS_SUCCESS' | translate}} ({{ testit }}) ({{ ttt }})</span>
         </p>
       </div>
     </div>

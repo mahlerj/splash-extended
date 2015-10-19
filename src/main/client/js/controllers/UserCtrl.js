@@ -22,11 +22,8 @@ function($scope, apiUserService) {
   };
 
   $scope.resetPassword = function(userId) {
-    apiUserService.passwordReset(userId).then(function(res) {
-      $scope.res = res;
-      if (!res.isError) {
+    apiUserService.passwordReset(userId).then(function(res) {    
         $scope.isReseted = true;       
-      }
     });
   };
 }]);
