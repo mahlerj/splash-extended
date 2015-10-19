@@ -9,12 +9,8 @@ angular.module('logicline.controllers')
 'apiUserService',
 
 function($state, $scope, $rootScope, $upload, apiUserService) {
-  var CustomerService = (function() {
+  var CustomerService = (
       function customerCreate() {
-        $scope.userInformation = {
-          userInfoEntity: {}
-        };
-
         $scope.createUser = function(isValid, userInformation) {
           $scope.userInformationSubmitted = true;
           if (isValid === true) {
@@ -23,7 +19,7 @@ function($state, $scope, $rootScope, $upload, apiUserService) {
             });
           };
         };
-     };
+    
 
      function customerUpload() {
           $scope.fileUpload = function(files) {

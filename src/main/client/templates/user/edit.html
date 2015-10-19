@@ -44,7 +44,7 @@
     <div class="row headline--border">
       <div class="small-12 columns">
         <input type="text" name="email" placeholder="{{ 'USER_EDIT_FORM_EMAIL' | translate }}" class="small-12 medium-5 columns input" required ng-model="userInformation.email" ng-class="{ 'has--error': userEditForm.$submitted && (userEditForm.email.$error.required || userEditForm.email.$invalid) }" />
-        <input type="text" name="phone" placeholder="{{ 'USER_EDIT_FORM_PHONE' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-model="userInformation.contactPersNr" />
+        <input type="text" name="phone" placeholder="{{ 'USER_EDIT_FORM_PHONE' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-model="userInformation.mainPhone" />
       </div>
     </div>
     
