@@ -87,7 +87,7 @@
 		<jdbc:initialize-database data-source="dataSource"
 			ignore-failures="DROPS">
 			<jdbc:script location="classpath:schema-prod.sql" />
-			<jdbc:script location="classpath:test-data.sql" />
+			<jdbc:script location="classpath:test-data-prod.sql" />
 		</jdbc:initialize-database>
 
 

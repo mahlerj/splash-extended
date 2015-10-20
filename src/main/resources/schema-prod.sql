@@ -1,19 +1,20 @@
 -- Attention IF EXISTS is Postgres specific
-
 DROP TABLE IF EXISTS ContactEntity;
 DROP TABLE IF EXISTS UserEntity;
+DROP sequence hibernate_sequence;
 
 CREATE TABLE UserEntity(
-	userId SERIAL PRIMARY KEY,
-  	username varchar(255) UNIQUE,	
+	userId INTEGER NOT NULL,
+  	username varchar(255),	
 	password varchar(255),
-	token varchar(255) UNIQUE,
-  	role varchar(255)
+	token varchar(255),
+  	role varchar(255),
+  	PRIMARY KEY (userid)
 );
 
 CREATE TABLE ContactEntity
 (
-	id SERIAL PRIMARY KEY,
+	id INTEGER NOT NULL,
     userIdFk INTEGER,
 	email character varying(80),
   	firstname character varying(40),
@@ -22,9 +23,11 @@ CREATE TABLE ContactEntity
   	mailingcountry character varying(80),
   	mailingpostalcode character varying(20),
   	mailingstreet character varying(255),
-  	phone character varying(40)  	
+  	phone character varying(40),
+  	PRIMARY KEY (id)
 );
 
+CREATE sequence hibernate_sequence;
 
 
 
