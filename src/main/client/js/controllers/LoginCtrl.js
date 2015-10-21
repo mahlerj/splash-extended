@@ -61,7 +61,6 @@ function($rootScope, $scope, $window, localStorageService, appAuthenticationServ
     appAuthenticationService.login(getCredentials(credentials)).then(function(User) {
       if (!User.isError) {
     	$rootScope.userIdFk = User.userId;
-    	console.log($rootScope.userIdFk);
         if (!User.isCSCUser) {        
           $scope.$state.go('dashboard');
         } else {

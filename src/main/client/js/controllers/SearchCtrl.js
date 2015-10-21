@@ -32,7 +32,7 @@ function($rootScope, $scope, $filter, SearchService) {
 		});
     })();
 	
-	if ($scope.$state.current.lastName !== 'customer_search') {
+	if ($scope.$state.current.name !== 'customer_search') {
 		$scope.resultsList = SearchService.getResultsList();
 		$scope.searchResult = SearchService.getResult();
 		if ($scope.resultsList.length > 0) {
@@ -70,12 +70,12 @@ function($rootScope, $scope, $filter, SearchService) {
 			if (response.isError) {
 				return;
 			}
-			$scope.resultsList = [];lastName
-
+			$scope.resultsList = [];
+			console.log("Search by name "+ $scope.lastName+": " + response);
 			if (!!response.length) {
 				$scope.isResultList = true;
 				$scope.resultsList = response;
-				$scope.filteredCustomers = response;
+				$scope.filteredCustomers = response;				
 			}
 		});
 	};
@@ -87,8 +87,7 @@ function($rootScope, $scope, $filter, SearchService) {
 		$scope.isResultList = false;
 		$scope.isResultChosen = true;
 		$scope.searchResult = SearchService.chooseResult(resultId);
-
-		$scope.$state.go('customer_search_view');
+		$scope.$state.go('customer_edit', {'userId': resultId});
 	};
 
 	$scope.cancelSearch = function() {
