@@ -43,7 +43,7 @@ function(Restangular, apiBaseResponses) {
     },
     putInformation: function(userInformation) {
       return Restangular
-              .one('user/edit', userInformation.userId)
+              .one('user/edit', userInformation.userIdFk)
               .customPUT(userInformation)
               .then(apiBaseResponses.onSuccess, apiBaseResponses.onError);
     },

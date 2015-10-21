@@ -44,18 +44,19 @@
     <div class="row headline--border">
       <div class="small-12 columns">
         <input type="text" name="email" placeholder="{{ 'USER_EDIT_FORM_EMAIL' | translate }}" class="small-12 medium-5 columns input" required ng-model="userInformation.email" ng-class="{ 'has--error': userEditForm.$submitted && (userEditForm.email.$error.required || userEditForm.email.$invalid) }" />
-        <input type="text" name="phone" placeholder="{{ 'USER_EDIT_FORM_PHONE' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-model="userInformation.contactPersNr" />
+        <input type="text" name="phone" placeholder="{{ 'USER_EDIT_FORM_PHONE' | translate }}" class="small-12 medium-5 medium-pull-1 columns input" ng-model="userInformation.mainPhone" />
       </div>
     </div>
     
      <div class="row headline--border spacing--top--20" access="Admin" access-is-rendered="FALSE" style="padding-top:10px;">
       <div class="small-12 columns">
         <p class="content--text">
+     
           <span>{{'USER_EDIT_PS_RESET'| translate}}</span>
           <span class="input-reset display--inline cursor--pointer" ng-click="resetPassword(userInformation.userIdFk);"></span>
         </p>
         <p class="content--text" ng-show="isReseted">
-          <span class="help--success">&nbsp;&nbsp;&nbsp;&nbsp;{{'USER_EDIT_PS_SUCCESS' | translate}}</span>
+          <span class="help--success"> &nbsp;&nbsp;&nbsp;&nbsp;{{'USER_EDIT_PS_SUCCESS' | translate}}</span>
         </p>
       </div>
     </div>

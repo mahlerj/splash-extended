@@ -2,15 +2,16 @@
 
 angular.module('logicline.controllers')
 .controller('UserCtrl', [
+'$rootScope',
 '$scope',
 'apiUserService',
 
-function($scope, apiUserService) {
+function($rootScope, $scope, apiUserService) {
   $scope.isOwnData = $scope.$state.current.name === 'customer_edit';
   $scope.referrer = $scope.isOwnData ? 'customer_search_view':'dashboard';
 
-  apiUserService.getInformation($scope.$state.params.userId || '').then(function(response) {
-    $scope.userInformation = response;
+  apiUserService.getInformation($rootScope.searchUserIdFk || $rootScope.userIdFk).then(function(response) {
+    $scope.userInformation = response;    
   });
 
   $scope.updateUser = function(isValid, userInformation) {
@@ -22,11 +23,9 @@ function($scope, apiUserService) {
   };
 
   $scope.resetPassword = function(userId) {
-    apiUserService.passwordReset(userId).then(function(res) {
-      $scope.res = res;
-      if (!res.isError) {
-        $scope.isReseted = true;       
-      }
+    apiUserService.passwordReset(userId).then(function(res) {    
+        $scope.isReseted = true;   
+        $scope.res = res;
     });
   };
 }]);

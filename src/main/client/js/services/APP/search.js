@@ -50,6 +50,7 @@ function(apiUserService) {
 
         // created mock respone as we are using only Customer object 
         for (var i = 0; i < resultsList.length; i++) {
+        	console.log(resultsList[i]);
              if (resultsList[i].userIdFk === resultId) {
                 searchResult = {
                     customerInfo: resultsList[i]

@@ -75,17 +75,6 @@ angular.module('logicline')
           permissionType: 'AtLeastOne'
       }
     })
-    /* customer upload */
-    .state('customer_upload', {
-      url          : '/customer/upload',
-      templateUrl  : 'templates/customer/upload.html',
-      controller   : 'CustomerCtrl',
-      access: {
-          requiresLogin: true,
-          requiredPermissions: ['Admin', 'CSC Admin'],
-          permissionType: 'AtLeastOne'
-      }
-    })
     /* Fallback */
     .state('otherwise', {
       url: '/system/login',
