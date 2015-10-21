@@ -8,11 +8,12 @@
   <form name="loginForm" ng-submit="performLogin(loginForm.$valid, login);" novalidate>
     <div class="row">
       <div class="small-12 columns">
-        <!-- Start: Headline & help -->
+        <!-- Start: Headline & help 
         <h3 class="headline--border">
           {{ 'LOGIN_HEADLINE' | translate }}
         </h3>
-
+		-->
+		<h3 class=headline></h3>
         <p class="content--text">
           {{ 'LOGIN_SUBHEADLINE' | translate }}
           <span class="help--error" ng-if="isEmptyCredentials">{{ 'LOGIN_SUBHEADLINE' | translate }}</span>

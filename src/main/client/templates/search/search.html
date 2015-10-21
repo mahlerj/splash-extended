@@ -19,16 +19,14 @@
       <p class="content--text" ng-show="isResultChosen">{{'USER_SEARCH_EDIT_SUBHEADLINE2' | translate}}</p>
     </div>
   </div>
-  <div ng-show="!isResultChosen">
 		<div class="flexsearch">
 			<div class="flexsearch--wrapper">
-				<form class="flexsearch--form" ng-submit="searchData();">
+				<form class="flexsearch--form">
 					<div class="flexsearch--input-wrapper">
 						<input class="flexsearch--input" type="search"
 						placeholder="search" data-ng-model="lastName" data-ng-change="filterCustomers()"
 						class="novalidate form-control">
 					</div>
-					<input class="flexsearch--submit" type="submit" value="&#10140;" />
 				</form>
 			</div>
 		</div>
@@ -50,30 +48,6 @@
       </div>
     </div>
     <!-- End: Buttons -->
-  </div>
 
-  <div class="row spacing--top--15" ng-if="isResultChosen">
-    <!--div class="small-12 medium-5 large-4 columns">
-      <a href="#" ng-click="goTo('contract_list_admin', {userId: searchResult.customerInfo.userIdFk});">{{ 'DASHBOARD_BOX_VRM_HEADLINE' | translate }}</a>
-    </div>
-    <div class="small-12 medium-5 medium-pull-1 large-4 large-pull-3 columns">
-      <a href="#" ng-click="goTo('customer_edit', {userId: searchResult.customerInfo.userIdFk});">{{ 'DASHBOARD_BOX_PERSONAL_DATA_HEADLINE' | translate }}</a>
-    </div-->
-
-    <div class="small-12 columns spacing--top--15">
-      <div class="small-12 medium-5 large-4 columns box box--cerulean cursor--pointer" ng-click="goTo('customer_edit', {userId: searchResult.customerInfo.userIdFk});">
-        <p class="box__headline">
-          {{ 'DASHBOARD_BOX_PERSONAL_DATA_HEADLINE' | translate }}
-        </p>
-        <p class="box__content">
-          {{ 'DASHBOARD_BOX_PERSONAL_DATA_CONTENT' | translate }}
-        </p>
-      </div>
-    </div>
-
-    <div class="small-12 columns spacing--top--20">
-      <input type="button" class="small-5 medium-2 columns cursor--pointer btn btn--cancel" ng-click="backToResults();" value="{{ 'BTN_CLOSE' | translate }}"/>
-    </div>
-  </div>
 </div>
 <!-- End: Content -->
