@@ -3,13 +3,12 @@
 ## A simple Template for Contact Management
 
 
-Login as an Administrator: 
+__Login as an Administrator:__
 Username: admin
 Password: admin
 
-Login as a Customer:
+__Login as a Customer:__
 Username: user1
-Password: user1
 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
