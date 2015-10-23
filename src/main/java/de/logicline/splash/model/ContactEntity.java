@@ -1,11 +1,11 @@
-package de.logicline.herokutemplate.model;
+package de.logicline.splash.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import de.logicline.herokutemplate.dto.ContactDto;
+import de.logicline.splash.dto.ContactDto;
 
 @Entity
 public class ContactEntity {

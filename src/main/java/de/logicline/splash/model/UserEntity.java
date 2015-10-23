@@ -1,4 +1,4 @@
-package de.logicline.herokutemplate.model;
+package de.logicline.splash.model;
 
 import java.io.Serializable;
 

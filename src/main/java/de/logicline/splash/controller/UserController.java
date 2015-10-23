@@ -1,4 +1,4 @@
-package de.logicline.herokutemplate.controller;
+package de.logicline.splash.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import de.logicline.herokutemplate.dto.ContactDto;
-import de.logicline.herokutemplate.model.ContactEntity;
-import de.logicline.herokutemplate.model.UserEntity;
-import de.logicline.herokutemplate.service.UserService;
+import de.logicline.splash.dto.ContactDto;
+import de.logicline.splash.model.ContactEntity;
+import de.logicline.splash.model.UserEntity;
+import de.logicline.splash.service.UserService;
 
 @Controller
 public class UserController {

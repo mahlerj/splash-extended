@@ -5,8 +5,8 @@
              version="2.0">
 
 	 <persistence-unit name="dataSource" transaction-type="RESOURCE_LOCAL">
-		<class>de.logicline.herokutemplate.model.UserEntity</class>
-		<class>de.logicline.herokutemplate.model.ContactEntity</class>
+		<class>de.logicline.splash.model.UserEntity</class>
+		<class>de.logicline.splash.model.ContactEntity</class>
 	</persistence-unit>
 
 </persistence>

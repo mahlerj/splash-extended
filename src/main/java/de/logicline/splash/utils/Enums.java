@@ -1,4 +1,4 @@
-package de.logicline.herokutemplate.utils;
+package de.logicline.splash.utils;
 
 public class Enums {
 	

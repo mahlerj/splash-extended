@@ -1,6 +1,6 @@
-package de.logicline.herokutemplate.dto;
+package de.logicline.splash.dto;
 
-import de.logicline.herokutemplate.model.ContactEntity;
+import de.logicline.splash.model.ContactEntity;
 
 public class ContactDto {
 

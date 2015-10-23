@@ -28,7 +28,7 @@ angular.module('logicline', [
 		$window.location.href = $location.absUrl().replace('http', 'https');
 	  }
     } else {
-		$rootScope.origin = 'http://localhost:8080/logiclineportal';
+		$rootScope.origin = 'http://localhost:8080/splash';
 	}
 
     if (appAuthorizationService.isAuthorized()) {

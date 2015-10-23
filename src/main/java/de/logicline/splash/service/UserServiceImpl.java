@@ -1,4 +1,4 @@
-package de.logicline.herokutemplate.service;
+package de.logicline.splash.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,13 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import de.logicline.herokutemplate.dao.ContactDao;
-import de.logicline.herokutemplate.dao.UserDao;
-import de.logicline.herokutemplate.dto.ContactDto;
-import de.logicline.herokutemplate.model.ContactEntity;
-import de.logicline.herokutemplate.model.UserEntity;
-import de.logicline.herokutemplate.utils.Enums;
-import de.logicline.herokutemplate.utils.PasswordGenerator;
+import de.logicline.splash.dao.ContactDao;
+import de.logicline.splash.dao.UserDao;
+import de.logicline.splash.dto.ContactDto;
+import de.logicline.splash.model.ContactEntity;
+import de.logicline.splash.model.UserEntity;
+import de.logicline.splash.utils.Enums;
+import de.logicline.splash.utils.PasswordGenerator;
 
 @Service
 public class UserServiceImpl implements UserService {

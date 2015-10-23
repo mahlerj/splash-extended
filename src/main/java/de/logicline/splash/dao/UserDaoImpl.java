@@ -1,4 +1,4 @@
-package de.logicline.herokutemplate.dao;
+package de.logicline.splash.dao;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import javax.persistence.criteria.Root;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import de.logicline.herokutemplate.model.UserEntity;
+import de.logicline.splash.model.UserEntity;
 
 @Repository
 public class UserDaoImpl extends AbstractDaoImpl<UserEntity> implements UserDao {

@@ -1,20 +1,27 @@
-# Heroku Template
+# Splash
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 Simple Template for Contact Management
 
 
-# Heroku Template
+# Splash
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+Login as and Administrator: 
+Username: admin
+Password: admin
+
+Login as a Customer:
+Username: user1
+Password: user1
 
 
 ## REST API Specification v2 (for calling the Java Backend) 
 
 ###Login and get a User Token back (like v1)
-- Request: http://localhost:8080/logiclineportal/user/login
+- Request: http://localhost:8080/splash/user/login
 - Method Type: POST
 - Header Values: Content-Type: application/json;
 Example: 
@@ -28,7 +35,7 @@ Example:
 }
 
 ###Login with CAPTCHA and get a User Token back (like v1)
-- Request: http://localhost:8080/logiclineportal/user/login
+- Request: http://localhost:8080/splash/user/login
 - Method Type: POST
 - Header Values: Content-Type: application/json;
 Example: 
@@ -48,7 +55,7 @@ ResponseCode: 401 (login failed)
 null			
 
 ###Create New User (Request and Response Data changed)
-- Request: http://localhost:8080/logiclineportal/user/create
+- Request: http://localhost:8080/splash/user/create
 - Method Type: POST
 - Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad
 
@@ -69,23 +76,23 @@ Example:
 	password of the new generated user
 
 ###Create new Password (Response Data changed, Method Type Changed)
-- Request: http://localhost:8080/logiclineportal/user/edit/password/:userIdFk
+- Request: http://localhost:8080/splash/user/edit/password/:userIdFk
 - Method Type: POST 
 - Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad
 Example:  
 - Request Data: 
-		 http://localhost:8080/logiclineportal/user/edit/password/2			
+		 http://localhost:8080/splash/user/edit/password/2			
 - Response Data:
 		/!o8COfz8h
 		
 
 ###Contact Object (Response Data changed)
-- Request: http://localhost:8080/logiclineportal/user/edit/:userIdFk
+- Request: http://localhost:8080/splash/user/edit/:userIdFk
 - Method Type: GET
 - Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
 Updated URL to retrieve UserInfo by User ID field 
 Example: 
-- Request URL: http://localhost:8080/logiclineportal/user/edit/2
+- Request URL: http://localhost:8080/splash/user/edit/2
 - Request Data:
 - Response Data: 
 {
@@ -101,7 +108,7 @@ Example:
 
 
 ###Get all Contacts (Response Data changed)
-- Request: http://localhost:8080/logiclineportal/user/search
+- Request: http://localhost:8080/splash/user/search
 - Method Type: GET
 - Header Values: Content-Type: application/json; token: xyz
 Example: 
@@ -113,11 +120,11 @@ Example:
 } 
 
 ### Search Contacts by last name - or a part of it (Response Data changed)
-- Request: http://localhost:8080/logiclineportal/user/search/:customerId
+- Request: http://localhost:8080/splash/user/search/:customerId
 - Method Type: GET
 - Header Values: Content-Type: application/json; token: xyz
 Example: 
-- Request Data: http://localhost:8080/logiclineportal/user/search/Bauerf
+- Request Data: http://localhost:8080/splash/user/search/Bauerf
 - Response Data:
 {
     "2": "Bauerfeld"
@@ -125,12 +132,12 @@ Example:
 
 
 ###Update Contact Object (Request Data changed)
-- Request: http://localhost:8080/logiclineportal/user/edit/:userIdFk
+- Request: http://localhost:8080/splash/user/edit/:userIdFk
 - Method Type: PUT
 - Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
 Updated URL to update UserInfo by User ID field 
 Example: 
-- Request URL: http://localhost:8080/logiclineportal/user/edit/2
+- Request URL: http://localhost:8080/splash/user/edit/2
 - Request Data: 
 {
     "email": "max@gmx.de",
@@ -149,7 +156,7 @@ Example:
 
 ## API Specification v1
 ###Login and get a User Token back
-- Request: http://localhost:8080/logiclineportal/user/login
+- Request: http://localhost:8080/splash/user/login
 - Method Type: POST
 - Header Values: Content-Type: application/json;
 Example: 
@@ -163,7 +170,7 @@ Example:
 }
 
 ###Login with CAPTCHA and get a User Token back
-- Request: http://localhost:8080/logiclineportal/user/login
+- Request: http://localhost:8080/splash/user/login
 - Method Type: POST
 - Header Values: Content-Type: application/json;
 Example: 
@@ -183,7 +190,7 @@ ResponseCode: 401 (login failed)
 null			
 
 ###Create New User
-- Request: http://localhost:8080/logiclineportal/user/create
+- Request: http://localhost:8080/splash/user/create
 - Method Type: POST
 - Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad
 
@@ -211,17 +218,17 @@ Example:
 	id of the new generated user
 
 ###Create new Password
-- Request: http://localhost:8080/logiclineportal/user/edit/password/:userIdFk
+- Request: http://localhost:8080/splash/user/edit/password/:userIdFk
 - Method Type: PUT
 - Header Values: Content-Type: application/json; token: 16b63e94679ec680d1395b541ba7b2ad
 Example:  
 - Request Data: 
-		 http://localhost:8080/logiclineportal/user/edit/password/2			
+		 http://localhost:8080/splash/user/edit/password/2			
 - Response Data:
 		/!o8COfz8h
 
 ### DEPRECATED Get Contact Object (for current User)
-- Request: http://localhost:8080/logiclineportal/user/edit
+- Request: http://localhost:8080/splash/user/edit
 - Method Type: GET
 - Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
 Example: 
@@ -247,12 +254,12 @@ Example:
 }
 
 ###Contact Object 
-- Request: http://localhost:8080/logiclineportal/user/edit/:userIdFk
+- Request: http://localhost:8080/splash/user/edit/:userIdFk
 - Method Type: GET
 - Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
 Updated URL to retrieve UserInfo by User ID field 
 Example: 
-- Request URL: http://localhost:8080/logiclineportal/user/edit/2
+- Request URL: http://localhost:8080/splash/user/edit/2
 - Request Data:
 - Response Data: 
 {
@@ -277,7 +284,7 @@ Example:
 
 
 ###Get all Contacts 
-- Request: http://localhost:8080/logiclineportal/user/search
+- Request: http://localhost:8080/splash/user/search
 - Method Type: GET
 - Header Values: Content-Type: application/json; token: xyz
 Example: 
@@ -289,11 +296,11 @@ Example:
 } 
 
 ### Serch Contacts by customerId (or a part of it)
-- Request: http://localhost:8080/logiclineportal/user/search/:customerId
+- Request: http://localhost:8080/splash/user/search/:customerId
 - Method Type: GET
 - Header Values: Content-Type: application/json; token: xyz
 Example: 
-- Request Data: http://localhost:8080/logiclineportal/user/search/999
+- Request Data: http://localhost:8080/splash/user/search/999
 - Response Data:
 {
     "2": "5121-9992-01",
@@ -301,7 +308,7 @@ Example:
 } 
 
 ### DEPRECATED Update Contact Object (for current User)
-- Request: http://localhost:8080/logiclineportal/user/edit
+- Request: http://localhost:8080/splash/user/edit
 - Method Type: PUT
 - Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
 Example: 
@@ -328,12 +335,12 @@ Example:
 - Response Data:
 
 ###Update Contact Object
-- Request: http://localhost:8080/logiclineportal/user/edit/:userIdFk
+- Request: http://localhost:8080/splash/user/edit/:userIdFk
 - Method Type: PUT
 - Header Values: Content-Type: application/json; token: 332bc0ddba3c4bc792c4829ff3834ca9
 Updated URL to update UserInfo by User ID field 
 Example: 
-- Request URL: http://localhost:8080/logiclineportal/user/edit/2
+- Request URL: http://localhost:8080/splash/user/edit/2
 - Request Data: 
 {
     "userInfoId": 1,

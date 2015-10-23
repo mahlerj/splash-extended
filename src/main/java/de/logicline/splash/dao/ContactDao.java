@@ -1,8 +1,8 @@
-package de.logicline.herokutemplate.dao;
+package de.logicline.splash.dao;
 
 import java.util.List;
 
-import de.logicline.herokutemplate.model.ContactEntity;
+import de.logicline.splash.model.ContactEntity;
 
 public interface ContactDao extends AbstractDao<ContactEntity> {
 

@@ -1,4 +1,4 @@
-package de.logicline.herokutemplate.dao;
+package de.logicline.splash.dao;
 
 import java.util.List;
 

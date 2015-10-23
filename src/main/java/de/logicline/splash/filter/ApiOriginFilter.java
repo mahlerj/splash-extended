@@ -1,4 +1,4 @@
-package de.logicline.herokutemplate.filter;
+package de.logicline.splash.filter;
 
 import java.io.IOException;
 

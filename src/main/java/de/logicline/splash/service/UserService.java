@@ -1,11 +1,11 @@
-package de.logicline.herokutemplate.service;
+package de.logicline.splash.service;
 
 import java.util.List;
 import java.util.Map;
 
-import de.logicline.herokutemplate.dto.ContactDto;
-import de.logicline.herokutemplate.model.ContactEntity;
-import de.logicline.herokutemplate.model.UserEntity;
+import de.logicline.splash.dto.ContactDto;
+import de.logicline.splash.model.ContactEntity;
+import de.logicline.splash.model.UserEntity;
 
 public interface UserService {
 

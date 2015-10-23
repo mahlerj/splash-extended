@@ -1,6 +1,6 @@
-package de.logicline.herokutemplate.dao;
+package de.logicline.splash.dao;
 
-import de.logicline.herokutemplate.model.UserEntity;
+import de.logicline.splash.model.UserEntity;
 
 public interface UserDao extends AbstractDao<UserEntity> {
 
