@@ -4,11 +4,12 @@
 
 
 __Login as an Administrator:__
-Username: admin
-Password: admin
+username: admin
+password: admin
 
 __Login as a Customer:__
-Username: user1
+username: user1
+password: user1
 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
