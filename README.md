@@ -1,21 +1,18 @@
 # Splash
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-Simple Template for Contact Management
+## A simple Template for Contact Management
 
 
-# Splash
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-Login as and Administrator: 
+Login as an Administrator: 
 Username: admin
 Password: admin
 
 Login as a Customer:
 Username: user1
 Password: user1
+
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 
 ## REST API Specification v2 (for calling the Java Backend) 
