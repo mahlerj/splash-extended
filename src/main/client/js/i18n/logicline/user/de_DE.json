@@ -10,7 +10,7 @@
   "USER_SEARCH_EDIT_SUBHEADLINE1" : "Bitte wählen Sie einen Datensatz zum Bearbeiten aus.",
   "USER_SEARCH_EDIT_SUBHEADLINE2" : "Hier können Sie die Kundendaten bearbeiten.",
   "USER_EDIT_SAVE_SUCCESS"        : "Ihre Änderungen wurden erfolgreich gespeichert.",
-  "USER_EDIT_PS_RESET"            : "Neues Passwort erstellen.",
+  "USER_EDIT_CREATE_ACCOUNT"      : "Einen Web Account für diesen User erstellen",
   "USER_EDIT_PS_SUCCESS"          : "Ihr Passwort wurde erfolgreich zurückgesetzt und in die DB eingetragen",
 
   "USER_EDIT_FORM_FIRSTNAME"      : "Vorname *",
