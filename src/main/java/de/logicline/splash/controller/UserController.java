@@ -103,14 +103,15 @@ public class UserController {
 			@RequestBody final ContactDto contactDto,
 			HttpServletRequest request, HttpServletResponse response) {
 
-		String password = userService.createUser(contactDto);
+		// String password = userService.createUser(contactDto);
+		String password = null;
 
 		return password;
 	}
 
 	@RequestMapping(value = "/user/edit/password/{userId}", method = RequestMethod.POST)
 	public @ResponseBody String updateUserPassword(
-			@PathVariable("userId") Integer userId, HttpServletRequest request,
+			@PathVariable("userId") String userId, HttpServletRequest request,
 			HttpServletResponse response) {
 
 		String newPassword = userService.updatePassword(userId);
@@ -120,7 +121,7 @@ public class UserController {
 
 	@RequestMapping(value = "/user/edit/{userId}", method = RequestMethod.GET)
 	public @ResponseBody ContactDto getUserInfoByUserId(
-			@PathVariable("userId") Integer userId, HttpServletRequest request,
+			@PathVariable("userId") String userId, HttpServletRequest request,
 			HttpServletResponse response) {
 
 		ContactEntity contactEntity = userService.getContactByUserId(userId);
@@ -133,26 +134,26 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user/search", method = RequestMethod.GET)
-	public @ResponseBody Map<Integer, String> getAllCustomer(
+	public @ResponseBody Map<String, String> getAllCustomer(
 			HttpServletRequest request, HttpServletResponse response) {
 
-		Map<Integer, String> customerIdMap = userService.getCustomerIdMap();
+		Map<String, String> customerIdMap = userService.getCustomerIdMap();
 
 		return customerIdMap;
 	}
 
 	@RequestMapping(value = "/user/search/{name}", method = RequestMethod.GET)
-	public @ResponseBody Map<Integer, String> searchUserByName(
+	public @ResponseBody Map<String, String> searchUserByName(
 			@PathVariable("name") String name, HttpServletRequest request,
 			HttpServletResponse response) {
 
-		Map<Integer, String> nameMap = userService.searchUserByName(name);
+		Map<String, String> nameMap = userService.searchUserByName(name);
 
 		return nameMap;
 	}
 
 	@RequestMapping(value = "/user/edit/{userId}", method = RequestMethod.PUT)
-	public void updateUserInfoById(@PathVariable("userId") Integer userId,
+	public void updateUserInfoById(@PathVariable("userId") String userId,
 			@RequestBody final ContactDto contactDto,
 			HttpServletRequest request, HttpServletResponse response) {
 

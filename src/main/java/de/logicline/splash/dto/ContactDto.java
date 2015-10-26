@@ -4,7 +4,7 @@ import de.logicline.splash.model.ContactEntity;
 
 public class ContactDto {
 
-	private Integer userIdFk;
+	private String userIdFk;
 	private String email;
 	private String mainName;
 	private String mainSurname;
@@ -14,11 +14,11 @@ public class ContactDto {
 	private String mainStreet;
 	private String mainPhone;
 
-	public Integer getUserIdFk() {
+	public String getUserIdFk() {
 		return userIdFk;
 	}
 
-	public void setUserIdFk(Integer userIdFk) {
+	public void setUserIdFk(String userIdFk) {
 		this.userIdFk = userIdFk;
 	}
 

@@ -2,9 +2,7 @@ package de.logicline.splash.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -13,9 +11,7 @@ public class UserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
-	@Column(nullable = false)
-	private Integer userId;
+	private String userId;
 
 	private String username;
 
@@ -25,11 +21,11 @@ public class UserEntity implements Serializable {
 
 	private String role;
 
-	public Integer getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Integer userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

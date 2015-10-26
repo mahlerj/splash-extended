@@ -18,7 +18,7 @@ public class ContactDaoImpl extends AbstractDaoImpl<ContactEntity> implements
 		super(ContactEntity.class);
 	}
 
-	public ContactEntity getContactByUserId(Integer userId) {
+	public ContactEntity getContactByUserId(String userId) {
 
 		CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
 		CriteriaQuery<ContactEntity> cq = cb.createQuery(ContactEntity.class);

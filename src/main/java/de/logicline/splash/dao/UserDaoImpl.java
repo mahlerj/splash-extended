@@ -20,7 +20,7 @@ public class UserDaoImpl extends AbstractDaoImpl<UserEntity> implements UserDao 
 		super(UserEntity.class);
 	}
 
-	public Integer getUserId(String token) {
+	public String getUserId(String token) {
 
 		UserEntity result = getUser(token);
 		if (result != null) {

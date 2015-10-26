@@ -4,10 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import de.logicline.splash.dto.ContactDto;
 
 @Entity
+@Table(name = "contact", schema = "salesforce")
 public class ContactEntity {
 
 	@Id
@@ -15,7 +17,8 @@ public class ContactEntity {
 	@Column(nullable = false)
 	private Integer id;
 
-	private Integer userIdFk;
+	@Column(name = "sfid")
+	private String userIdFk;
 
 	private String email;
 	private String firstName;
@@ -34,11 +37,11 @@ public class ContactEntity {
 		this.id = id;
 	}
 
-	public Integer getUserIdFk() {
+	public String getUserIdFk() {
 		return userIdFk;
 	}
 
-	public void setUserIdFk(Integer userIdFk) {
+	public void setUserIdFk(String userIdFk) {
 		this.userIdFk = userIdFk;
 	}
 
