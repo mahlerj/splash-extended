@@ -44,10 +44,25 @@
 
 	<beans profile="default">
 
-		<jdbc:embedded-database id="dataSource" type="HSQL">
+		<!-- <jdbc:embedded-database id="dataSource" type="HSQL">
 			<jdbc:script location="classpath:schema.sql" />
 			<jdbc:script location="classpath:test-data.sql" />
-		</jdbc:embedded-database>
+		</jdbc:embedded-database>  -->
+		
+		<bean id="dataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="org.postgresql.Driver" />
+			<property name="url"
+				value="jdbc:postgresql://ec2-54-247-79-142.eu-west-1.compute.amazonaws.com:5432/da98fcih5rouv2?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory" />
+			<property name="username" value="ijtmbgfaxeirpx" />
+			<property name="password" value="Gqh69FJpRCT5KDfL939MF_qZds" />
+		</bean>
+		
+		<jdbc:initialize-database data-source="dataSource"
+			ignore-failures="DROPS">
+			<jdbc:script location="classpath:schema-prod.sql" />
+			<jdbc:script location="classpath:test-data-prod.sql" />
+		</jdbc:initialize-database>
 
 		<bean id="entityManagerFactory"
 			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
