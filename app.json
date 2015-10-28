@@ -1,7 +1,7 @@
 {
-  "name": "splash",
+  "name": "splash-extended",
   "description": "Simple template for managing contacts",
-  "repository":  "https://github.com/logiclinegmbh/splash.git",
+  "repository":  "https://github.com/logiclinegmbh/splash-extended.git",
   "logo": "http://www.logicline.de/wordpress/wp-content/uploads/2015/01/logicline_logo_400.png",
   "keywords": ["angularjs", "java", "heroku", "spring"],
   "addons": ["heroku-postgresql:hobby-dev"],
