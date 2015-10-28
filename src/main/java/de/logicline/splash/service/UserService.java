@@ -23,6 +23,8 @@ public interface UserService {
 
 	public String updatePassword(String userId);
 
+	public String createWebAccount(String userId);
+
 	public Map<String, String> getCustomerIdMap();
 
 	public Map<String, String> searchUserByName(String name);

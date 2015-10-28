@@ -2,6 +2,7 @@ package de.logicline.splash.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -11,6 +12,7 @@ public class UserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(nullable = false)
 	private String userId;
 
 	private String username;

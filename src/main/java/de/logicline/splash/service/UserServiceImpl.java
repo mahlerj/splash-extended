@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import de.logicline.splash.dao.UserDao;
 import de.logicline.splash.dto.ContactDto;
 import de.logicline.splash.model.ContactEntity;
 import de.logicline.splash.model.UserEntity;
+import de.logicline.splash.utils.Enums;
 import de.logicline.splash.utils.PasswordGenerator;
 
 @Service
@@ -118,6 +120,25 @@ public class UserServiceImpl implements UserService {
 		UserEntity userForUpdate = userDao.find(userId);
 		userForUpdate.setPassword(password);
 		userDao.edit(userForUpdate);
+		return password;
+
+	}
+
+	@Transactional
+	public String createWebAccount(String userId) {
+
+		ContactEntity ce = contactDao.getContactByUserId(userId);
+
+		UserEntity ue = new UserEntity();
+		ue.setUserId(ce.getUserIdFk());
+		ue.setUsername(ce.getLastName());
+		String password = new PasswordGenerator().generatePswd(10, 10, 2, 2, 2);
+		ue.setPassword(password);
+		String token = DigestUtils.md5Hex(password + ce.getLastName());
+		ue.setToken(token);
+		ue.setRole(Enums.UserRole.ROLE_CUSTOMER.name());
+		userDao.create(ue);
+
 		return password;
 
 	}
