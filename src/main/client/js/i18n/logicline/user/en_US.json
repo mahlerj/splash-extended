@@ -11,7 +11,7 @@
   "USER_SEARCH_EDIT_SUBHEADLINE2" : "Here you can edit the customer data.",
   "USER_EDIT_SAVE_SUCCESS"        : "Your changes were successfully saved.",
   "USER_EDIT_CREATE_ACCOUNT"      : "Create a web account for this user.",
-  "USER_EDIT_PS_SUCCESS"          : "The password has been successfully reset and can be checked up in DB",
+  "USER_EDIT_PS_SUCCESS"          : "The password has been successfully created and can be checked up in DB",
   "USER_EDIT_FORM_FIRSTNAME"      : "First Name *",
   "USER_EDIT_FORM_LASTNAME"       : "Last Name *",
   "USER_EDIT_FORM_STREET"         : "Street",
