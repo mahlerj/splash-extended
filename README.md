@@ -12,6 +12,9 @@ password: admin
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 
+After configuring the Heroku Connect Addon, please import the contacts-mapping.json into Heroku Connect.
+
+
 ## REST API Specification v2 (for calling the Java Backend) 
 
 ###Login and get a User Token back (like v1)
