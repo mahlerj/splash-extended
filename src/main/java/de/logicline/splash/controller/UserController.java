@@ -115,11 +115,10 @@ public class UserController {
 			HttpServletResponse response) {
 
 		Map<String, String> responseMap = new HashMap<String, String>();
-		String newPassword = userService.createWebAccount(userId);
-		responseMap.put("pw", "1234");
-		responseMap.put("gg", "Attention");
+		UserEntity newUserEntity = userService.createWebAccount(userId);
+		responseMap.put("username", newUserEntity.getUsername());
+		responseMap.put("password", newUserEntity.getPassword());
 		return responseMap;
-		// return newPassword;
 	}
 
 	@RequestMapping(value = "/user/edit/{userId}", method = RequestMethod.GET)

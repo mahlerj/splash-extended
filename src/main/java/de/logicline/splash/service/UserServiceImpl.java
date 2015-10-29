@@ -125,21 +125,27 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Transactional
-	public String createWebAccount(String userId) {
+	public UserEntity createWebAccount(String userId) {
 
 		ContactEntity ce = contactDao.getContactByUserId(userId);
 
-		UserEntity ue = new UserEntity();
-		ue.setUserId(ce.getUserIdFk());
-		ue.setUsername(ce.getLastName());
 		String password = new PasswordGenerator().generatePswd(10, 10, 2, 2, 2);
-		ue.setPassword(password);
-		String token = DigestUtils.md5Hex(password + ce.getLastName());
-		ue.setToken(token);
-		ue.setRole(Enums.UserRole.ROLE_CUSTOMER.name());
-		userDao.create(ue);
+		UserEntity ue = userDao.find(userId);
+		if (ue == null) {
+			ue = new UserEntity();
+			ue.setUserId(ce.getUserIdFk());
+			ue.setUsername(ce.getLastName());
+			ue.setPassword(password);
+			String token = DigestUtils.md5Hex(password + ce.getLastName());
+			ue.setToken(token);
+			ue.setRole(Enums.UserRole.ROLE_CUSTOMER.name());
+			userDao.create(ue);
 
-		return password;
+		}
+		ue.setPassword(password);
+		userDao.edit(ue);
+
+		return ue;
 
 	}
 }

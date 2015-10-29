@@ -23,7 +23,7 @@ public interface UserService {
 
 	public String updatePassword(String userId);
 
-	public String createWebAccount(String userId);
+	public UserEntity createWebAccount(String userId);
 
 	public Map<String, String> getCustomerIdMap();
 
