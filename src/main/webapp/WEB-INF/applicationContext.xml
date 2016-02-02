@@ -45,14 +45,24 @@
 	<beans profile="default">
 
 		
-		<!-- To develop locally please add the credentials from your heroku postgresDb -->		
-		<bean id="dataSource"
+		<!-- To develop locally please add the credentials from your heroku postgresDb -->
+				
+<!-- 		<bean id="dataSource"
 			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 			<property name="driverClassName" value="org.postgresql.Driver" />
 			<property name="url"
 				value="jdbc:postgresql://yourhost:yourport/yourdatabase?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory" />
 			<property name="username" value="youruser" />
 			<property name="password" value="yourpassword" />
+		</bean> -->
+		
+		<bean id="dataSource"
+class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="org.postgresql.Driver" />
+			<property name="url"
+value="jdbc:postgresql://ec2-54-83-202-218.compute-1.amazonaws.com:5432/d1jjj87d0ai97o?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory" />
+			<property name="username" value="oeeppnglctkvmg" />
+			<property name="password" value="kXGkhVpfn8y0iC3myVhjN_NHeo" />
 		</bean>
 		
 		<jdbc:initialize-database data-source="dataSource"
