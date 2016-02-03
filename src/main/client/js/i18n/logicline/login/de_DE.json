@@ -1,5 +1,5 @@
 {
-  "LOGIN_HEADLINE"             : "",
+  "LOGIN_HEADLINE"             : "Anmeldung",
   "LOGIN_SUBHEADLINE"          : "Bitte geben Sie Ihre Anmeldedaten ein.",
   "LOGIN_ERROR"                : "Anmeldung fehlgeschlagen.",
   "LOGIN_LOCK_ERROR"           : "Die Anmeldeseite wurde gesperrt. Bitte probieren Sie in {{minutes}} Minuten erneut.",

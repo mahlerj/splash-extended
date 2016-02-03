@@ -1,5 +1,5 @@
 {
-  "LOGIN_HEADLINE"             : "",
+  "LOGIN_HEADLINE"             : "Login",
   "LOGIN_SUBHEADLINE"          : "Please enter your credentials.",
   "LOGIN_ERROR"                : "Wrong credentials.",
   "LOGIN_LOCK_ERROR"           : "The log in is locked. Please try again in {{minutes}} minutes.",

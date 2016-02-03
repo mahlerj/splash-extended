@@ -2,6 +2,7 @@
 <div ng-include="'templates/_preloader.html'"></div>
 <!-- End: Preloader -->
 
+<div class="space"></div>
 <!-- Start: Content -->
 <div class="content__inner">
   <!-- Start: Form -->
@@ -13,7 +14,7 @@
           {{ 'LOGIN_HEADLINE' | translate }}
         </h3>
 		-->
-		<h3 class=headline></h3>
+		<h3 class="headline">{{ 'LOGIN_HEADLINE' | translate }}</h3>
         <p class="content--text">
           {{ 'LOGIN_SUBHEADLINE' | translate }}
           <span class="help--error" ng-if="isEmptyCredentials">{{ 'LOGIN_SUBHEADLINE' | translate }}</span>
@@ -23,8 +24,8 @@
         <!-- End: Headline & help -->
 
         <!-- Start: Mandatory fields -->
-        <input type="text" name="username" placeholder="{{ 'LOGIN_FORM_ORGANIZATION_ID' | translate }}" class="small-12 medium-4 input" required ng-model="login.username" ng-class="{ 'has--error': loginForm.$submitted && ((loginForm.username.$error.required || loginForm.username.$invalid) || isLoginInvalid || isEmptyCredentials) }"/>
-        <input type="password" name="password" placeholder="{{ 'LOGIN_FORM_PASSWORD' | translate }}" class="small-12 medium-4 medium-offset-1 input" required ng-model="login.password" ng-class="{ 'has--error': loginForm.$submitted && ((loginForm.password.$error.required || loginForm.password.$invalid) || isLoginInvalid || isEmptyCredentials) }" />
+        <input type="text" name="username" placeholder="{{ 'LOGIN_FORM_ORGANIZATION_ID' | translate }}" class="small-12 medium-12 input" required ng-model="login.username" ng-class="{ 'has--error': loginForm.$submitted && ((loginForm.username.$error.required || loginForm.username.$invalid) || isLoginInvalid || isEmptyCredentials) }"/>
+        <input type="password" name="password" placeholder="{{ 'LOGIN_FORM_PASSWORD' | translate }}" class="small-12 medium-12 input" required ng-model="login.password" ng-class="{ 'has--error': loginForm.$submitted && ((loginForm.password.$error.required || loginForm.password.$invalid) || isLoginInvalid || isEmptyCredentials) }" />
         <!-- End: Mandatory fields -->
       </div>
     </div>
