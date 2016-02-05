@@ -19,17 +19,21 @@
       <p class="content--text" ng-show="isResultChosen">{{'USER_SEARCH_EDIT_SUBHEADLINE2' | translate}}</p>
     </div>
   </div>
-		<div class="flexsearch">
-			<div class="flexsearch--wrapper">
-				<form class="flexsearch--form">
-					<div class="flexsearch--input-wrapper">
-						<input class="flexsearch--input" type="search"
-						placeholder="search" data-ng-model="lastName" data-ng-change="filterCustomers()"
-						class="novalidate form-control">
-					</div>
-				</form>
-			</div>
-		</div>
+  <div class="row">
+    <div class="small-12 columns">
+  		<div class="flexsearch">
+  			<div class="flexsearch--wrapper">
+  				<form class="flexsearch--form">
+  					<div class="flexsearch--input-wrapper">
+  						<input class="input flexsearch--input" type="search"
+  						placeholder="search" data-ng-model="lastName" data-ng-change="filterCustomers()"
+  						class="novalidate form-control">
+  					</div>
+  				</form>
+  			</div>
+		  </div>
+    </div>
+  </div>
 		<div class="row spacing--top--15">
       <div class="small-12 columns">
         <!-- Start: Customer list -->

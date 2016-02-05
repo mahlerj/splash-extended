@@ -28,7 +28,8 @@ angular.module('logicline', [
 		$window.location.href = $location.absUrl().replace('http', 'https');
 	  }
     } else {
-		$rootScope.origin = 'http://localhost:8080/splash-extended';
+    // $rootScope.origin = 'http://localhost:8080/splash-extended';
+		$rootScope.origin = 'http://localhost:8080/splash-extended-1.0';
 	}
 
     if (appAuthorizationService.isAuthorized()) {
