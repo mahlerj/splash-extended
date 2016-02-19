@@ -64,7 +64,7 @@ function($rootScope, $scope, $window, localStorageService, appAuthenticationServ
         if (!User.isCSCUser) {        
           $scope.$state.go('dashboard');
         } else {
-          $scope.$state.go('customer_search');
+          $scope.$state.go('dashboard');
         }
         return;
       }
